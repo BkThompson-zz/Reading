@@ -1,0 +1,72 @@
+// BW SASS TEMPLATE
+//
+// Date:	12/12/2014
+// By:		Jonathan Day, Michael Devin, Patrick Regan, Rob Carroll
+// Base: 	HQ
+// 
+// Notes:
+// ------------------------- 
+// 12/04/14 - combined adaptive overrides and generic sass templates
+//          
+
+// COMPASS (http://compass-style.org/)
+// - compass offers many functions and mixins to make coding cross browser code more efficient. 
+@import "compass";
+@import "compass/css3";
+// @import "compass/layout"; // includes +stretch
+//
+// Compass Examples 
+// @include box-sizing(border-box); // http://compass-style.org/reference/compass/css3/box_sizing/
+// @include single-transition($property, $duration, $function); // http://compass-style.org/reference/compass/css3/transition/
+// @include background-image(linear-gradient(left top, white, #dddddd)); // http://compass-style.org/examples/compass/css3/gradient/
+// @include single-box-shadow($color, $hoff, $voff, $blur, $spread, $inset) // http://compass-style.org/reference/compass/css3/box_shadow/
+//
+// BW'S CUSTOM MIXINS
+// - we have created a number of mixins specific to our sites. Remember to set 
+// - $bw-content and $bw-content-content variables to match your clients template
+// - variables for mixins:
+
+$borderColor: #E1E0E0; 						// border colors used in mixins
+$linkColor: #00F; 							// link colors used in mixins
+$bw-content: '#bw-content';					// used to set parent containers in mixins
+$bw-content-content: '#bw-content-content'; // used to set parent containers in mixins 
+
+@import '_mixins.scss';
+// - simply uncomment the mixins below to use them
+// 
+// @include hasEvents(); 
+// @include oneColumnAdvancedSearch();
+// @include oneColumnSearch();
+// @include font-smoothing();
+// @include bwFooterLink (); // options (bwFooterLink(parentWidth, margin, padding, background-color, link color, text-align)
+// @include fixPageNotFound();
+// @include fixRSSPage();
+// @include fixUserPages();
+// @include fixTaxonomyPages();
+// @include fixThrobber() // options (default image, throbbing image) - correct placement of throbber image with pixel offsets
+// @include fixRecaptcha
+// @include fixInputCalendar;
+// @include addPagerFont(); // options (link color, font size, mobile width in pixels)
+// @include addShareThisFont(); // options (color, ShareThis icon[boolean, usually set to false], fontsize, hover opacity)
+// @include hasBwCommitteeTable(); // options(link color, border color, mobile width in pixels)
+// @include cycle2(); // options($pagerLocation: "above | right | below (default) | left ", $pagerType: "default | circle | square | number | hidden ", $numOfItems: 3 (default), $pagerButtons: true (default), $imageAsBackground: true (default), $linkColor: $linkColor (default), $borderColor: $borderColor (default), $fontSize: 22px(default));
+// @include addBwStyles(); // adds Business Wire styles for BW press releases
+//
+// EXTENDS
+// - These can be helpful. They set properties that match exactly
+// - example
+//   %reusableStyle { your style(s) here }
+//   then use in your code .someClass { @extend %reusableStyles;  more-styles... }
+//
+// FUNCTIONS
+// - common operations to determine values
+// fluidize(target,context); // i.e. if target is 300px parent/context is 900 33.33333% is returned
+
+// <------- YOUR STYLES GO HERE ----->
+
+h2.pane-title {}
+
+
+// ADAPTIVE OVERRIDES
+// if your site is Adapative Responsive, uncomment the line below
+// @import '_overrides.scss'; 

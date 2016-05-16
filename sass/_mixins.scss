@@ -1,0 +1,1518 @@
+// BW THEME STARTER
+//
+// Date:	12/12/2014
+// By:		Jonathan Day, Rob Carroll
+// Base: 	HQ
+// 
+// Notes:
+// ------------------------- 
+// 07/08/15 - added BW styles support
+// 03/25/13 - updated oneColumn submit and reset positioning
+// 02/10/14 - updated hasevents, removed hiding h2.pane-title on nodes
+// 05/12/14 - added font smoothing mixin
+// 05/28/14 - updated event styling on event nodes
+// 10/06/14 - added throbber fix to end
+// 12/04/14 - converted global styles to mixins. 
+// 12/12/14 - Adding Pager & Share This icon fonts
+// 12/12/14 - Added Pager media query & icon font path fixes
+// 01/12/15 - Added Committee Table Mixin
+// 01/13/15 - Started Cycle2 Styling
+
+// MIXINS
+
+
+@mixin hasEvents {
+
+	.page-calendar {
+
+		td {
+			&.calendar-agenda-items {
+				border: 1px dotted $borderColor;
+				border-right: none;
+				right: 2px;
+			}
+		
+			&.calendar-agenda-hour {
+				@extend .calendar-agenda-items;
+				border-left: none;
+			}
+		}
+	} 
+
+	.node-type-event #{$bw-content-content} {
+		h2.pane-title {
+			display:none;
+		}
+		
+		.pane-node-terms {
+		    margin: 10px 0;
+		}
+
+		.bw-node-content {
+			width:100%;
+			font-size: 12px;
+		
+			p
+			{
+				margin:10px 0
+			}
+		}
+
+		.panel-region-separator 
+		{ 
+			clear: both; 
+			margin: 1em 0; 
+		}
+
+		.bw-multizone-date { 
+			margin: 4px 0;
+			display: block; 
+			clear: both; 
+
+			> span { 
+				display: inline-block; 
+				float: left; 
+				width: 11%; 
+			}
+
+			> div { 
+				display: inline-block; 
+
+				&.tail-date-section 
+				{
+					width: 89%; 
+					float: right;
+				}
+			}
+		}
+	}
+}
+
+// Advanced Search pages with drop down columns
+@mixin oneColumnAdvancedSearch 
+{
+	/* ADVANCED SEARCH PAGE */
+	/*   - form */
+	.page-advsearch 
+	{
+		.pane-advanced-searchform
+		{
+			width:100%;
+			min-height:120px;
+			@include box-sizing(border-box); 
+			padding: 0;
+		}
+		
+		#{$bw-content-content }
+		{
+			.bw-sidebar 
+			{
+				width:100%;
+				min-height:120px;
+				padding: 0;
+				@include box-sizing(border-box); 
+			}
+		}
+
+		#edit-keys-wrapper {
+			width: 75%;
+			
+			label {
+				display:block;
+			}
+			
+			input#edit-keywords
+			{
+				padding:4px 1% 2px;
+			}
+		}
+
+		#bw-advanced-search-form 
+		{
+			fieldset.collapsible
+			{
+				display:block;
+				float:left;
+				width:31%;
+				height:auto;
+				min-height:26px;
+				padding:0;
+				margin:0 2.3333% 0 0;
+			}
+
+			// Updated 3/25/2014			
+			> div { 
+				position: relative; // the > div is positioned relative to control the submit and reset positioning below
+				width: 100%;
+			}
+			/* submit link */
+			#edit-submit, .bw-adv-search-reset {
+				position: absolute; 
+				right: 10%;
+				bottom: 3px; /* this may need to be edited */
+				margin: 0;
+			}
+			/* Reset Link */
+			.bw-adv-search-reset
+			{
+				right: 0; /* this may need to be edited for multilingual sites */
+			}
+		}
+
+
+		// Drop Down Buttons
+		fieldset 
+		{
+			legend
+			{
+				width: 100%;
+				border:1px solid #C1C0C0;
+				background:#FFF;
+				position:absolute;
+				padding:5px 1% 5px;
+				margin:0;
+				@include box-sizing(border-box); 
+			}
+
+			/* Drop Down Areas */
+			.fieldset-wrapper
+			{
+				position:absolute;
+				margin:24px 0 0;
+				padding:0 2% 0 3%;
+				width:100%;
+				border:1px solid #C1C0C0;
+				border-top:0;
+				background-color:#FFF;
+				z-index:10;
+				@include box-sizing(border-box); 
+			 
+			 	#edit-category-wrapper,
+			 	#edit-bw-adv-search-nodetype-wrapper
+				{
+					height:130px;
+					padding:0 0 4px;
+				}
+
+				#edit-category,
+				#edit-bw-adv-search-nodetype
+				{
+					height:142px;
+					padding:5px 1%; 
+				}
+			}
+		}
+
+		/*   Results Area */
+		#{$bw-content-content} .bw-main-content
+		{
+			border-top:1px solid #E1E0E0;
+			width: 100%;
+			padding-top:6px;
+			margin: 0;
+
+			.pane-apachesolr-sort
+			{
+				position:relative;
+				z-index:0;
+			}
+		}
+	}
+}
+
+// One column search page with dropdowns for sidebar elements
+@mixin oneColumnSearch {
+	.page-search 
+	{
+		#bw-panel-with-left-sidebar 
+		{
+			.bw-main-content 
+			{ 
+				position: relative; 
+				width: 100%; 
+				margin-bottom: 2em; 
+				z-index: 0; 
+			}
+
+			.bw-sidebar 
+			{ 
+				position: relative; 
+				width: 100%; 
+				margin: 3em 0 2em; 
+				padding: 1%;
+				z-index: 100; 
+				border: 1px solid $borderColor;
+				background-color: #FFF;
+				height: 3.5em;
+			
+				.bw-inner 
+				{ 
+					padding-right: 0;
+ 					@include box-sizing(border-box);
+				}
+
+				.panel-pane 
+				{
+					width: 24%;
+					height: 4em;
+					margin: 0.5%;
+					float: left;
+					@include box-sizing(border-box);
+			
+					h2 
+					{
+						font-size: 1em;
+						height: 3em;
+						padding: 5%;
+						margin: 0;
+						border: 1px solid $borderColor;
+						background-color: lighten($borderColor, 25%);
+						@include box-sizing(border-box);
+
+						+ .pane-content ul 
+						{
+							border: 4px double transparent;
+							padding: 0 5%;
+							margin: -1px 0 0 0;
+							width: 100%;
+							height: 0px;
+							overflow: hidden;
+							display: block;
+							float: left;
+							background: transparent;
+							font-size: .9em;
+							@include box-sizing(border-box);
+						
+							li 
+							{ 
+								list-style: none; 
+								padding: 0; 
+								margin: 5% 3%; 
+								width: 100%;
+							}
+						}
+					}
+
+					&:hover h2 + .pane-content ul
+					{
+						height: 100%;
+						border: 4px double $borderColor;
+						background: #FFF;
+					}
+				}
+
+				.pane-apachesolr-currentsearch h3 
+				{
+					position: absolute;
+					width: 97%;
+					margin-top: -5em;
+				}
+			}
+		}
+	}
+}
+
+@mixin font-smoothing($val: antialiased) {
+	-webkit-font-smoothing: $val;
+	-moz-font-smoothing: $val;
+	-ms-font-smoothing: $val;
+	-o-font-smoothing: $val;
+}
+
+
+@mixin bwFooterLink ($parentWidth:960px, $margin: 0 auto, $padding: 0, $background: transparent, $link: $linkColor, $text-align: right) {
+	/* BW Footer Link */
+	#bw_tag_wrap {
+		width: $parentWidth; 
+		margin: $margin; 
+		padding: $padding;
+		background-color: $background;
+		text-align: $text-align; 
+		clear:both;
+
+		a {
+			color: $link;
+		}
+	}
+}
+
+@mixin fixPageNotFound {
+	/* - page not found */
+	.page-page-not-found {
+		#{$bw-content-content} {
+			margin: 0 auto;
+		}
+	}
+}
+
+@mixin fixRSSPage {
+	/* - rss feeds */
+	.page-rss #{$bw-content} 
+	{
+		td.bw-rss-item {
+	  		padding: 0 2em;
+		}
+	}
+}
+
+@mixin fixUserPages {
+	/* user pages */
+
+	.page-user {
+
+		fieldset
+		{
+			border:none
+		}
+
+		.item-list-without-bullets ul 
+		{ 
+			list-style: none; 
+			margin: 0; 
+			padding: 0; 
+		}
+	}
+}
+
+@mixin fixTaxonomyPages {
+	/* category views */
+	.page-taxonomy .views-row {
+		
+		margin: 0 0 2em;
+	}
+}
+
+@mixin fixThrobber($default:2px, $throbbing:-18px) {
+// Mis-aligned Throbber on registration pag fix: 
+	html.js input {
+	 	&.form-autocomplete { background-position: 100% $default; }
+	  	&.throbbing { background-position:100% $throbbing; }
+	}	
+}
+
+@mixin fixRecaptcha {
+	.recaptcha_input_area 
+	{
+		max-height: 34px;
+	}
+
+	INPUT#recaptcha_response_field { 
+		@include box-sizing(border-box); 
+		line-height: 12px;
+	}
+}
+
+@mixin fixInputCalendar {
+	#ui-datepicker-div {
+		padding: 4px;
+  		@include box-sizing(content-box);
+	}
+
+	.ui-datepicker { 
+		a.ui-datepicker-next {
+	  		left: auto;
+		}
+	
+		.ui-datepicker-title {
+			select.ui-datepicker-year,
+			select.ui-datepicker-month {
+				position: relative;
+				width: 49%;
+				top: 2px;
+			}
+		}
+
+		.ui-datepicker-header {
+			height: 20px;
+		}
+	}
+}
+
+
+@mixin addPagerFont($color:$linkColor, $fontSize:22px, $mobile: 480px) {
+/* 
+This font mixin replaces the <<First <Previous Next> Last>> text links with icons using a font. This lets you style them as you please.
+To see them in action Check out Thermo Fishcher: http://thermofisher.newshq.businesswire.com/press_releases/all/all/all?page=0%2C7;
+*/
+
+
+	@font-face {
+	    font-family: 'pager-icons';
+	    src: url('sass/fonts/pager-icons.eot');
+	    src: url('sass/fonts/pager-icons.eot?#iefix') format('embedded-opentype'), /* IE8 */
+	         url('sass/fonts/pager-icons.woff') format('woff'), /* Modern Browsers */
+	         url('sass/fonts/pager-icons.ttf') format('truetype'), /* Safari, Android, iOS */
+	         url('sass/fonts/pager-icons.svg') format('svg'); /* Legacy iOS */
+	    font-weight: normal;
+	    font-style: normal;
+	}
+
+
+	ul.pager {
+
+		li.pager-first a,
+		li.pager-previous a,
+		li.pager-next a,
+		li.pager-last a {
+		        font-size: 0;   
+		}
+		    
+		li.pager-first a:after,
+		li.pager-previous a:after,
+		li.pager-next a:after,
+		li.pager-last a:after    {
+		     font-family: 'pager-icons'; 
+		     font-size: $fontSize;
+		     color: $color;
+
+		}
+	    
+		li.pager-first a:after {
+		     content: "";
+		}
+
+		li.pager-previous a:after {    
+		     content: "";  
+		}
+		    
+		li.pager-next a:after {
+		     content: "";
+		}
+
+		li.pager-last a:after {    
+		     content: "";  
+		}
+	}
+
+	@media all and (max-width: $mobile) {
+
+		ul.pager .pager-item {
+			display: none;
+		}
+		
+	}
+
+}
+
+
+@mixin addShareThisFont($color:$linkColor, $shareThisIcon:false, $fontSize:22px, $hoverOpacity: 0.75) {
+	
+	// Variable logic
+	$iconOption : ""; /* plus icon */
+
+	@if ($shareThisIcon == true ) {
+		$iconOption : ""; /* proper ShareThis 3 dot logo icon */
+	}
+
+	// Extends		
+	%iconStyles {
+		background: none;
+		background-image: none !important;
+		width: 40px;
+	}
+	
+	%iconStylesBefore {
+	    font-family: 'sharethis';
+	    text-indent: 0;
+	    font-size: $fontSize !important;
+	    line-height: $fontSize;
+	    text-align: center;
+	    font-weight: normal;
+	    color: $color;
+	    line-height: auto;
+	}
+
+	@font-face {
+	  font-family: 'sharethis';
+	  src: url('sass/fonts/sharethis.eot');
+	  src: url('sass/fonts/sharethis.eot#iefix') format('embedded-opentype'),
+	       url('sass/fonts/sharethis.woff') format('woff'),
+	       url('sass/fonts/sharethis.ttf') format('truetype'),
+	       url('sass/fonts/sharethis.svg#sharethis') format('svg');
+	  font-weight: normal;
+	  font-style: normal;
+	}
+
+	#{$bw-content-content} .bw-toolbar a:hover {
+	    text-decoration: none;
+	}
+
+	.bw-toolbar {
+	    border-left: none;
+
+		a {
+	    	text-indent: 0;
+	    	font-size: 0;
+
+			&.print-mail,
+			&.print-pdf,
+			&.print-page,
+			&.toolbar-rss {
+			    @extend %iconStyles;
+			}
+
+			&.print-mail:before {
+				content: "" !important;
+			}
+
+			&.print-pdf:before {
+				content: "";  
+			}
+
+			&.print-page:before {
+				content: "";
+			}
+
+			&.toolbar-rss:before {
+				content: "";
+			}
+
+			&:before {
+				@extend %iconStylesBefore;
+			}
+
+			&:hover {
+				opacity: $hoverOpacity;
+			}
+	
+		}
+
+		span.flag-favorites a {
+		    @extend %iconStyles;
+
+		    &:before {
+	    		content: "";
+			}    
+		}
+	    
+		span.stLarge {
+			@extend %iconStyles;
+
+		    &:before {
+		    	@extend %iconStylesBefore;
+		    	content: $iconOption;
+		    }
+
+		    &:hover {
+		    	opacity: $hoverOpacity;
+		    }
+		}
+	    
+	    
+		.st_sharethis_large {
+			&:before {
+					@extend %iconStylesBefore;
+			}
+
+			&:hover {
+				opacity: $hoverOpacity;
+			}
+		}
+	    
+		.stButton {
+			font-size: auto; // !important;
+	    	line-height: auto; // !important; 
+			
+			&:before {
+				@extend %iconStylesBefore;
+			}
+
+			&:hover {
+			    opacity: $hoverOpacity;
+			}
+		}
+	}
+}
+
+
+@mixin hasBwCommitteeTable($color1: $linkColor, $color2:$borderColor, $mobile: 480px) {
+
+	@font-face {
+		font-family: 'Corporate-Governance';
+		src:url('sass/fonts/Corporate-Governance.eot?');
+		src:url('sass/fonts/Corporate-Governance.eot?#iefix') format('embedded-opentype'),
+			url('sass/fonts/Corporate-Governance.woff?') format('woff'),
+			url('sass/fonts/Corporate-Governance.ttf?') format('truetype'),
+			url('sass/fonts/Corporate-Governance.svg?#Corporate-Governance') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	.bw_committee_table {
+		display:table;
+		width:100%;
+
+		span {
+			min-width:12px;
+			min-height:12px;
+			background-size:cover;
+		}
+	
+		.bw_committee_table_row {
+			display:table-row;
+
+			&:nth-child(odd) {
+				background-color:tint($color2, 75%);
+			}
+			
+			&.bw_committee_table_header {
+				font-size:0.85em;
+				font-weight:bold;
+				background-color: $color2;
+				color: tint($color2, 75%);
+			}
+	
+			div {
+				/* table cells */
+				display:table-cell;
+				text-align:center;
+				min-height:20px;
+				border:1px solid $color2;
+				border-left:none;
+				border-top:none;
+				margin:0;
+				padding:4px;
+				@include box-sizing(border-box);
+				
+				&:first-child {
+					min-width:175px;
+					border-left:1px solid $color2;
+					text-align:left;
+					font-weight: bold;
+				}
+			}
+		}
+
+		.bw_committee_chair,
+		.bw_committee_member { 
+			text-indent:-9999em;
+			overflow:hidden;
+			position: relative;
+			
+			&:before {
+				content: "\e600";
+				font-family: 'Corporate-Governance';
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+				color: $color1;
+
+				display: block;
+				text-indent: 0px;
+				position: absolute;
+				text-align: center;
+				width: 96%;
+			}
+		}
+
+		.bw_committee_member:before {
+				content: "\e600";
+				font-family: 'Corporate-Governance';
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+				color: desaturate($color1, 100%);
+		}
+
+		.bw_committee_table_footer {
+			display: table-row;
+			width: 100%;
+			font-size:0.85em;
+			color: #0069AA;
+			background-color:transparent;
+
+			div {
+				display: inline-block;
+			  	padding: 0.25em;
+			}
+
+			span:before {
+				/* icon position fixes*/
+			    position: relative;
+			    display: inline;
+			}
+		}
+	}
+
+	@media screen and (max-width: $mobile) {
+		.bw_committee_table {
+			display: block;
+		
+			.bw_committee_table_row {
+				display: block;
+				width: 100%;
+				border: 1px solid #49525F;
+				padding: 0.5em;
+
+				&.bw_committee_table_header {
+					display: none;
+				}
+
+				&:last-child {
+					border: none;
+				}
+			
+				div {
+					/* table cells */ 
+					display: block;
+					text-align: left;
+					border: none;
+					text-indent: 0px;
+					
+					&:first-child {
+						min-width: 100%;
+						border-left: none;
+					}
+
+					&.bw_committee_empty {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin cycle2($pagerLocation: "below", $pagerType: "default", $numOfItems: 3, $pagerButtons: true, $imageAsBackground: true, $linkColor: $linkColor, $borderColor: $borderColor, $fontSize: 22px) {
+	// $pagerLocation: "above", "right", "below", "left", "hidden"
+	// $pagerType: "default", "circle", "squre", "numbers" , 
+	// $numOfItems: #integer# 
+	// $pagerButtons: true, false
+	// $imageAsBackground: true, false
+	// $fontSize: 22px (default)
+
+	@font-face {
+	    font-family: 'pager-icons';
+	    src: url('sass/fonts/pager-icons.eot');
+	    src: url('sass/fonts/pager-icons.eot?#iefix') format('embedded-opentype'), /* IE8 */
+	         url('sass/fonts/pager-icons.woff') format('woff'), /* Modern Browsers */
+	         url('sass/fonts/pager-icons.ttf') format('truetype'), /* Safari, Android, iOS */
+	         url('sass/fonts/pager-icons.svg') format('svg'); /* Legacy iOS */
+	    font-weight: normal;
+	    font-style: normal;
+	}
+
+	.view-bw-rotating-content {
+		/** SETTINGS **
+		
+		pagerLocation: 		#{$pagerLocation} 		("above", "right", "below", "left", )
+		pagerType: 			#{$pagerType}		("default", "circle", "squre", "numbers", "hidden" )
+		numOfItems: 		#{$numOfItems} 			(#integer# )
+		pagerButtons: 		#{$pagerButtons} 		(true/false)
+		imageAsBackground: 	#{$imageAsBackground} 	(true/false)
+		
+		****/
+
+		position: relative;
+		float: left; 
+		margin-bottom: 3em;
+		width: 100%;
+		height: auto;
+
+		.cycle-slideshow {
+		    float: left;
+		    line-height: 1;
+		    overflow: hidden;
+		    padding: 0;
+		    margin: 0;
+			@include box-sizing(border-box);
+		}
+
+		.bw-cycle-pager-wrapper {
+		    line-height: 1;
+		    overflow: hidden;
+			@include box-sizing(border-box);
+			z-index: 100;
+
+			> div {
+				// #bw-cycle-pager-#, .cycle-next, .cycle-prev
+				@include box-sizing(border-box);
+				
+				@if ( ($pagerLocation == 'left') or ($pagerLocation == 'right') ) {
+					display: block;
+				} @else {
+					display: inline-block;	
+				}
+			}
+		}
+
+		// pager location
+		@if ($pagerLocation == "below") {
+			// default
+			.cycle-slideshow {
+				display: block;
+				float: left;
+			    width: 100%;
+			    margin-bottom: 1%;
+			}
+
+			.bw-cycle-pager-wrapper { 
+				display: block;
+				float: left;
+				width: 100%;
+				height: auto;
+				text-align: center;
+
+				> div {
+					line-height: $fontSize;
+				}
+				
+			}
+		} @elseif ($pagerLocation == "above") {
+
+			.cycle-slideshow {
+				display: block;
+			    width: 100%;
+				float: left;
+				@if ($pagerType == "default") {
+					margin-top: 110px; 	
+				} @else {
+					margin-top: 30px;
+				}
+				
+			}
+
+			.bw-cycle-pager-wrapper { 
+				display: block;
+				position: absolute;
+				top: 0;
+				width: 100%;
+				text-align: center;
+
+				@if ($pagerType == "default") {
+					height: 100px;
+				} @else {
+					height: $fontSize + 10px;
+				}
+			}
+
+		} @elseif ($pagerLocation == "left") {
+			.cycle-slideshow {
+				display: block;
+				float: right; // left;
+			    @if ($pagerType == "default") {
+			    	width: 70%;
+		    	} @else {
+		    		width: 100%;
+		    	}
+				padding: 0;
+				
+			}
+
+			.bw-cycle-pager-wrapper { 
+				position: absolute;
+				left: 1%;
+				@if ($pagerType == "default") {
+			    	width: 27%;
+			    	margin-right: 3%; 
+			    } @else {
+			    	width: 40px;
+			    	top: 5%;
+			    	height: 90%;
+			    }
+			}
+
+		} @elseif ($pagerLocation == "right") {
+
+			.cycle-slideshow {
+				display: block;
+				float: left;
+				
+			    @if ($pagerType == "default") {
+			    	width: 70%;
+		    	} @else {
+		    		width: 100%;
+		    	}
+				padding: 0;
+			}
+
+			.bw-cycle-pager-wrapper { 
+				position: absolute;
+				right: 2%;
+				@if ($pagerType == "default") {
+			    	width: 27%;
+			    	margin-left: 3%;
+			    } @else {
+			    	width: 40px;
+			    	top: 5%;
+			    	height: 90%;
+			    }
+			}
+
+		} 
+
+		// Pager type
+		@if ($pagerType == 'default') {
+			// default
+			.bw-cycle-pager-wrapper {
+
+				a {
+					float: left;
+					width: 100%;
+					height: auto;
+					padding: 0.25em;
+					margin: 0;
+
+					@if ( ($pagerLocation == "below") or ($pagerLocation == "above") ) {
+						width: (100/$numOfItems)*1%;
+					} 
+					
+					@if ( ($pagerLocation == "left") or ($pagerLocation == "right") ) {
+						height: 0;
+						padding: 0 0.25em ((200/($numOfItems)) - 4)*1%;
+						margin: 0 0 4%;
+						overflow: hidden;
+					}
+					
+					text-align: center;
+					@include box-sizing(border-box);
+
+					&.cycle-pager-active {
+						background-color: $borderColor; 
+					}
+					
+				}
+
+				.fullnode_thumb {
+					width: 100%;
+					@if ( ($pagerLocation == "left") or ($pagerLocation == "right") ) {
+						width: 30%;
+						margin-right: 5%;
+						padding: 2% 0;
+					}
+
+					float: left;
+					height: auto;
+					line-height: 0; // image padding correction
+					@include box-sizing(border-box);
+
+					img {
+						max-width: 100%;
+						@if ($pagerLocation == "above") {
+							max-height: 75px;
+							
+						}
+					}
+				}
+				@if ( ($pagerLocation == "left") or ($pagerLocation == "right") ) {
+					.bw-cycle-title	{
+						width: 65%;
+						float: right;
+						text-align: left;
+					}
+				}
+			}
+
+		} @elseif (($pagerType == 'circle') or ($pagerType == 'square') ) {
+
+			.bw-cycle-pager-wrapper {
+				text-align: center;
+				
+				a {
+					text-indent: -99999em;
+					@if ( ($pagerLocation == "below") or ($pagerLocation == "above") ) {
+						display: inline-block;
+						margin: 0 ((30px - $fontSize)/2);
+					} @else {
+						display: block;
+						margin: 10px 11px;
+					}
+
+					height: ($fontSize - 6px);
+					width: ($fontSize - 6px);
+					border: 1px solid $borderColor;
+					@if ( $pagerType == 'circle' ) { 
+						@include border-radius(($fontSize - 6px)); 
+					}
+
+					&.cycle-pager-active { 
+						background-color: $linkColor;
+						border-color: $linkColor;
+					}
+				}
+
+				.fullnode_thumb {
+					display: none;
+				}
+			}
+		} @elseif ( $pagerType == 'number' ) {
+			.bw-cycle-pager-wrapper {
+				text-align: center;
+				
+				a {
+					line-height: $fontSize;
+					text-indent: -99999em;
+					position: relative;
+					color: desaturate($linkColor, 100%);
+					
+
+					@if ($pagerLocation == "below") {
+						display: inline-block;
+						width: 1em;
+						margin: 2px 5px 0;
+					} @elseif ($pagerLocation == "above") {
+						display: inline-block;
+						width: 1em;
+						margin: 0 5px;
+					} @else {
+						display: block;
+						width: 100%; // 1em;
+						margin: 1em 0;
+					}
+
+					height: 1em;
+					
+	
+					@include box-sizing(border-box);
+					
+					&.cycle-pager-active { 
+						color: $linkColor;
+					}
+
+					@for $i from 1 through $numOfItems {
+					  &:nth-child(#{$i}):before {
+					  	content: "#{$i}";
+					  	text-indent: 0;
+					  	position: absolute;
+					  	top: 0;
+					  	left: 0;
+					  	width: 100%;
+					  	text-align: center;
+
+					  }  
+					}
+				}
+
+				.fullnode_thumb {
+					display: none;
+				}
+			}
+		} @elseif ($pagerType == "hidden") {
+
+			div[id^="bw-cycle-pager-"] { 
+				display: none;
+			}
+
+		}
+
+		// full width images
+		@if ($imageAsBackground == true) {
+
+			.cycle-slideshow {
+
+			    li {
+			    	width: 100%;
+			    	height: auto;
+			    	position: relative;
+			    }
+
+			    .views-field-item {
+			    	position: absolute;
+			    	top: 0;
+			    	float: left;
+			    	width: 100%;
+
+			    	> * {
+				    	padding: 2% 1% 0;
+		    	
+				    	&:empty { 
+					    	padding: 0 0 0;
+				    	}	
+				    } 
+			    }
+
+				.views-field-field-image-image-fid {
+					position: relative;
+					top: 0;
+					z-index: -1;
+					width: 100%;
+					margin: 0;
+
+					> * {
+						padding: 0 0 0;
+					}
+					
+					img {
+						width: 100%;
+						height: auto;
+						line-height: 0;
+					}
+				}
+
+				// hide urls 
+				div[class$='fid-1'] {
+					display: none;
+				}
+
+				.views-field-created, 
+				.views-field-title,
+				.views-field-field-bio-job-title-value, 
+				.views-field-field-press-release-subheadline-value,
+				.views-field-teaser,
+				.views-field-view-node {
+			 		top: 0;
+			 	}
+			 }
+		} 
+
+		.views-field-item {
+			display: block;
+			width: 100%;
+
+			> *:empty {
+				display: none;
+			} 
+		}
+		
+		// pager buttons
+		@if ($pagerButtons == true) {
+			
+			.cycle-prev, 
+			.cycle-next {
+				font-size: $fontSize;
+				line-height: $fontSize;
+				position: relative;
+				
+				@if ( ($pagerLocation == "below") or ($pagerLocation == "hidden") ) {	
+					
+					left: 0;
+					width: $fontSize;
+					height: 100%;
+					overflow: visible;
+
+				} @elseif ($pagerLocation == "above") {
+					
+					left: 0;
+					width: $fontSize;
+					overflow: visible;
+
+				} @elseif ( ($pagerLocation == "left") or ($pagerLocation == "right") ) {
+					
+					@if ( $pagerType == "default" ) {
+						float: left;
+						width: 100%;
+					} @else {
+						//width: $fontSize;
+					}
+					
+				}
+	
+				cursor: pointer;
+
+				&:before {
+					font-family: 'pager-icons';
+					font-size: $fontSize;
+					line-height: $fontSize;
+			     	color: $borderColor;
+					content:  "";
+					position: relative;
+					text-align: center;
+
+					@if ($pagerLocation == 'below') {
+
+						@if ($pagerType == "default") { 
+							top: 50%; 
+						} @else {
+							top: 2px;
+						}
+						width: 100%; //30px;
+					} @elseif ($pagerLocation == 'above') {
+						
+						@if ($pagerType == "default") { 
+								top: 35px; 
+							} @else {
+								top: ((30-$fontSize)/2);
+							}
+						width: 100%; //30px;
+					} @elseif ($pagerLocation == "hidden") {
+						float: left;
+						width: 30px;
+					} @else {
+						top: auto;
+						@include rotate(90deg);
+					}
+					
+					display: block;
+					overflow: visible;
+					z-index: 9999;
+				}
+
+				&:hover {
+					@include opacity(0.75);
+				}
+			}
+
+			.cycle-next {
+
+				@if ( ($pagerLocation == "above") or ($pagerLocation == "below") or ($pagerLocation == "hidden") ) {
+					left: auto;
+					right: 0;
+				} 
+
+				@if ($pagerLocation == "hidden") {
+					float: right;
+				}
+				
+				&:before {
+					content: ""; // Rob font here
+					@if ($pagerLocation == "hidden") {
+						float: right;
+					}
+				}
+			}
+		}
+
+		@if ($pagerButtons == false) {
+			.bw-cycle-pager-wrapper .cycle-prev, 
+			.bw-cycle-pager-wrapper .cycle-next {
+				display: none;
+			}
+		}
+
+		// hide urls 
+		div[class$='fid-1'] {
+			display: none;
+		}
+	}
+}
+
+@mixin addBwStyles {
+	sub { vertical-align: sub; font-size: 0.6em; }
+	sup { vertical-align: super; font-size: 0.6em; }
+	b, strong { font-weight: bold; }
+	i { font-style: italic; }
+
+	// Content Photo */
+	.bwbodyimg {float:left;padding-left:0px;padding-right:20px; padding-top:0px;padding-bottom:0px;}
+	.bwbodyimgcaption {font-size:85%;}
+	//text alignments*/
+	.bwtextaligncenter, .bwalignc {text-align:center;clear:both;}
+	.bwtextalignleft, .bwalignl {text-align:left;}
+	.bwtextalignright, .bwalignr  {text-align:right;}
+	.bwverticalaligntop, .bwvertalignt {vertical-align:top;}
+	.bwverticalalignmiddle, .bwvertalignm {vertical-align:middle;}
+	.bwverticalalignbottom, .bwvertalignb {vertical-align:bottom;}
+	.bwtablefigurealign, .bwfigurealign {text-align:right;vertical-align:bottom;}
+	.bwtabletextalign, .bwtxtalign {text-align:left;vertical-align:bottom;}
+	.bwwhitespacenowrap, .bwnowrap {white-space:nowrap;}
+	//borders*/
+	.bwsinglebottomborder, .bwsinglebottom {border-bottom:solid black 1.0pt !important;border-right:medium none;border-top:medium none;border-left:medium none;}
+	.bwdoublebottomborder, .bwdoublebottom {border-bottom:double black 2.25pt!important;border-right:medium none;border-top:medium none;border-left:medium none; }
+
+	.bwsingletopborder, .bwsingletop {border-top:solid black 1.0pt!important;border-right:medium none;border-bottom:medium none;border-left:medium none;}
+	.bwdoubletopborder, .bwdoubletop {border-top:double black 2.25pt!important;border-right:medium none;border-bottom:medium none;border-left:medium none;}
+	//table cell paddings*/
+	.bwcellpaddingleft0, .bwpadl0 {padding-left:0.0px;}
+	.bwcellpaddingleft1, .bwpadl1 {padding-left:5.0px;}
+	.bwcellpaddingleft2, .bwpadl2 {padding-left:10.0px;}
+	.bwcellpaddingleft3, .bwpadl3 {padding-left:15.0px;}
+	.bwcellpaddingleft4, .bwpadl4 {padding-left:20.0px;}
+	.bwcellpaddingleft5, .bwpadl5 {padding-left:25.0px;}
+	.bwcellpaddingleft6, .bwpadl6 {padding-left:30.0px;}
+	.bwcellpaddingleft7, .bwpadl7 {padding-left:35.0px;}
+	.bwcellpaddingleft8, .bwpadl8 {padding-left:40.0px;}
+	.bwcellpaddingleft9, .bwpadl9 {padding-left:45.0px;}
+	.bwcellpaddingleft10, .bwpadl10 {padding-left:50.0px;}
+	.bwcellpaddingleft11, .bwpadl11 {padding-left:55.0px;}
+	.bwcellpaddingleft12, .bwpadl12 {padding-left:60.0px;}
+	.bwcellpaddingleft13, .bwpadl13 {padding-left:65.0px;}
+	.bwcellpaddingleft14, .bwpadl14 {padding-left:70.0px;}
+	.bwcellpaddingleft15, .bwpadl15 {padding-left:75.0px;}
+	.bwcellpaddingleft16, .bwpadl16 {padding-left:80.0px;}
+	.bwcellpaddingleft17, .bwpadl17 {padding-left:85.0px;}
+	.bwcellpaddingleft18, .bwpadl18 {padding-left:90.0px;}
+	.bwcellpaddingleft19, .bwpadl19 {padding-left:95.0px;}
+	.bwcellpaddingleft20, .bwpadl20 {padding-left:100.0px;}
+	//table cell paddings*/
+	.bwcellpaddingright0, .bwpadr0 {padding-right:0.0px;}
+	.bwcellpaddingright1, .bwpadr1 {padding-right:5.0px;}
+	.bwcellpaddingright2, .bwpadr2 {padding-right:10.0px;}
+	.bwcellpaddingright3, .bwpadr3 {padding-right:15.0px;}
+	.bwcellpaddingright4, .bwpadr4 {padding-right:20.0px;}
+	.bwcellpaddingright5, .bwpadr5 {padding-right:25.0px;}
+	.bwcellpaddingright6, .bwpadr6 {padding-right:30.0px;}
+	.bwcellpaddingright7, .bwpadr7 {padding-right:35.0px;}
+	.bwcellpaddingright8, .bwpadr8 {padding-right:40.0px;}
+	.bwcellpaddingright9, .bwpadr9 {padding-right:45.0px;}
+	.bwcellpaddingright10, .bwpadr10 {padding-right:50.0px;}
+	.bwcellpaddingtop1, .bwpadt1 {padding-top:10.0px;}
+	.bwcellpaddingtop2, .bwpadt2  {padding-top:20.0px;}
+	.bwcellpaddingtop3, .bwpadt3  {padding-top:30.0px;}
+	.bwcellpaddingtop4, .bwpadt4  {padding-top:40.0px;}
+	.bwcellpaddingtop5, .bwpadt5  {padding-top:50.0px;}
+	.bwcellpaddingtop6, .bwpadt6  {padding-top:60.0px;}
+	.bwcellpaddingtop7, .bwpadt7  {padding-top:70.0px;}
+	.bwcellpaddingtop8, .bwpadt8  {padding-top:80.0px;}
+	.bwcellpaddingtop9, .bwpadt9  {padding-top:90.0px;}
+	.bwcellpaddingtop10, .bwpadt10  {padding-top:100.0px;}
+	.bwcellpaddingtop11, .bwpadt11 {padding-top:110.0px;}
+	.bwcellpaddingtop12, .bwpadt12 {padding-top:120.0px;}
+	.bwcellpaddingtop13, .bwpadt13 {padding-top:130.0px;}
+	.bwcellpaddingtop14, .bwpadt14 {padding-top:140.0px;}
+	.bwcellpaddingtop15, .bwpadt15 {padding-top:150.0px;}
+	.bwcellpaddingtop16, .bwpadt16 {padding-top:160.0px;}
+	.bwcellpaddingtop17, .bwpadt17 {padding-top:170.0px;}
+	.bwcellpaddingtop18, .bwpadt18 {padding-top:180.0px;}
+	.bwcellpaddingtop19, .bwpadt19 {padding-top:190.0px;}
+	.bwcellpaddingtop20, .bwpadt20 {padding-top:200.0px;}
+	//cell bottom padding adjustment styles*/
+	.bwcellpaddingbottom1, .bwpadb1  {padding-bottom:2.0px;}
+	.bwcellpaddingbottom2, .bwpadb2 {padding-bottom:3.0px;}
+	.bwcellpaddingbottom3, .bwpadb3 {padding-bottom:4.0px;}
+	//underline style*/
+	.bwunderlinestyle, .bwuline {text-decoration:underline;}
+	.bwdoubleunderlinestyle, .bwdbluline {text-decoration:underline;border-bottom:1px solid black;}
+	/*color style*/
+	.bwcolorred, .bwred {color:red;}
+	.bwcolorblack, .bwblack {color:black;}
+	//margin left*/
+	.bwmarginleft1, .bwmarginl1 {margin-left:30.0px;}
+	.bwmarginleft2, .bwmarginl2 {margin-left:60.0px;}
+	.bwmarginleft3, .bwmarginl3 {margin-left:90.0px;}
+	.bwmarginleft4, .bwmarginl4 {margin-left:120.0px;}
+	.bwmarginleft5, .bwmarginl5 {margin-left:150.0px;}
+	.bwmarginleft6, .bwmarginl6 {margin-left:180.0px;}
+	.bwmarginleft7, .bwmarginl7 {margin-left:210.0px;}
+	.bwmarginleft8, .bwmarginl8 {margin-left:240.0px;}
+	.bwmarginleft9, .bwmarginl9 {margin-left:270.0px;}
+	.bwmarginleft10, .bwmarginl10 {margin-left:300.0px;}
+	//text indent*/
+	.bwhangingindent, .bwhangindent {text-indent:-30.0px;}
+	//paragraph indent*/
+	.bwparagraphindent, .bwpindent {text-indent:30.0px;}
+	//list styles*/
+	.bwliststylenone, .bwlistnone {list-style-image:none;list-style-type:none;}
+	.bwliststyledisc, .bwlistdisc {list-style-type:disc;}
+	.bwliststylesquare, .bwlistsquare {list-style-type:square;}
+	.bwliststylecircle, .bwlistcircle {list-style-type:circle;}
+	.bwliststyledecimal, .bwlistdecimal {list-style-type:decimal;}
+	.bwliststyleloweralpha, .bwlistlowalpha {list-style-type:lower-alpha;}
+	.bwliststyleupperalpha, .bwlistupalpha {list-style-type:upper-alpha;}
+	.bwliststylelowerroman, .bwlistlowroman {list-style-type:lower-roman;}
+	.bwliststyleupperroman, .bwlistuproman {list-style-type:upper-roman;}
+	//list item spacing*/
+	.bwlistitemmarginbottom, .bwlistitemmargb {margin-bottom:10.0px;}
+	//pargraph margin inside table cells*/
+	.bwcellparagraphmargin, .bwcellpmargin {margin-bottom:0px;margin-top:0px;}
+	//table bottom margin*/
+	.bwtablebottommargin, .bwtablemarginb {border-top:medium none; border-left:medium none;margin-bottom:10.0px; }
+	//horizontal block alignment*/
+	.bwblockaligncenter, .bwblockalignc {margin-left:auto;margin-right:auto;}
+	.bwblockalignleft, .bwblockalignl {margin-left:0px;margin-right:auto;}
+	.bwblockalignright, .bwblockalignr {margin-left:auto;margin-right:0px;}
+	//width*/
+	.bwwidthpercent1, .bwwidth1 {width:1%;} 
+	.bwwidthpercent2, .bwwidth2 {width:2%;} 
+	.bwwidthpercent3, .bwwidth3 {width:3%;} 
+	.bwwidthpercent4, .bwwidth4 {width:4%;} 
+	.bwwidthpercent5, .bwwidth5 {width:5%;} 
+	.bwwidthpercent6, .bwwidth6 {width:6%;} 
+	.bwwidthpercent7, .bwwidth7 {width:7%;} 
+	.bwwidthpercent8, .bwwidth8 {width:8%;} 
+	.bwwidthpercent9, .bwwidth9 {width:9%;} 
+	.bwwidthpercent10, .bwwidth10 {width:10%;} 
+	.bwwidthpercent11, .bwwidth11 {width:11%;} 
+	.bwwidthpercent12, .bwwidth12 {width:12%;} 
+	.bwwidthpercent13, .bwwidth13 {width:13%;} 
+	.bwwidthpercent14, .bwwidth14 {width:14%;} 
+	.bwwidthpercent15, .bwwidth15 {width:15%;} 
+	.bwwidthpercent16, .bwwidth16 {width:16%;} 
+	.bwwidthpercent17, .bwwidth17 {width:17%;} 
+	.bwwidthpercent18, .bwwidth18 {width:18%;} 
+	.bwwidthpercent19, .bwwidth19 {width:19%;} 
+	.bwwidthpercent20, .bwwidth20 {width:20%;} 
+	.bwwidthpercent21, .bwwidth21 {width:21%;} 
+	.bwwidthpercent22, .bwwidth22 {width:22%;} 
+	.bwwidthpercent23, .bwwidth23 {width:23%;} 
+	.bwwidthpercent24, .bwwidth24 {width:24%;} 
+	.bwwidthpercent25, .bwwidth25 {width:25%;} 
+	.bwwidthpercent26, .bwwidth26 {width:26%;} 
+	.bwwidthpercent27, .bwwidth27 {width:27%;} 
+	.bwwidthpercent28, .bwwidth28 {width:28%;} 
+	.bwwidthpercent29, .bwwidth29 {width:29%;} 
+	.bwwidthpercent30, .bwwidth30 {width:30%;} 
+	.bwwidthpercent31, .bwwidth31 {width:31%;} 
+	.bwwidthpercent32, .bwwidth32 {width:32%;} 
+	.bwwidthpercent33, .bwwidth33 {width:33%;} 
+	.bwwidthpercent34, .bwwidth34 {width:34%;} 
+	.bwwidthpercent35, .bwwidth35 {width:35%;} 
+	.bwwidthpercent36, .bwwidth36 {width:36%;} 
+	.bwwidthpercent37, .bwwidth37 {width:37%;} 
+	.bwwidthpercent38, .bwwidth38 {width:38%;} 
+	.bwwidthpercent39, .bwwidth39 {width:39%;} 
+	.bwwidthpercent40, .bwwidth40 {width:40%;} 
+	.bwwidthpercent41, .bwwidth41 {width:41%;} 
+	.bwwidthpercent42, .bwwidth42 {width:42%;} 
+	.bwwidthpercent43, .bwwidth43 {width:43%;} 
+	.bwwidthpercent44, .bwwidth44 {width:44%;} 
+	.bwwidthpercent45, .bwwidth45 {width:45%;} 
+	.bwwidthpercent46, .bwwidth46 {width:46%;} 
+	.bwwidthpercent47, .bwwidth47 {width:47%;} 
+	.bwwidthpercent48, .bwwidth48 {width:48%;} 
+	.bwwidthpercent49, .bwwidth49 {width:49%;} 
+	.bwwidthpercent50, .bwwidth50 {width:50%;} 
+	.bwwidthpercent51, .bwwidth51 {width:51%;} 
+	.bwwidthpercent52, .bwwidth52 {width:52%;} 
+	.bwwidthpercent53, .bwwidth53 {width:53%;} 
+	.bwwidthpercent54, .bwwidth54 {width:54%;} 
+	.bwwidthpercent55, .bwwidth55 {width:55%;} 
+	.bwwidthpercent56, .bwwidth56 {width:56%;} 
+	.bwwidthpercent57, .bwwidth57 {width:57%;} 
+	.bwwidthpercent58, .bwwidth58 {width:58%;} 
+	.bwwidthpercent59, .bwwidth59 {width:59%;} 
+	.bwwidthpercent60, .bwwidth60 {width:60%;} 
+	.bwwidthpercent61, .bwwidth61 {width:61%;} 
+	.bwwidthpercent62, .bwwidth62 {width:62%;} 
+	.bwwidthpercent63, .bwwidth63 {width:63%;} 
+	.bwwidthpercent64, .bwwidth64 {width:64%;} 
+	.bwwidthpercent65, .bwwidth65 {width:65%;} 
+	.bwwidthpercent66, .bwwidth66 {width:66%;} 
+	.bwwidthpercent67, .bwwidth67 {width:67%;} 
+	.bwwidthpercent68, .bwwidth68 {width:68%;} 
+	.bwwidthpercent69, .bwwidth69 {width:69%;} 
+	.bwwidthpercent70, .bwwidth70 {width:70%;} 
+	.bwwidthpercent71, .bwwidth71 {width:71%;} 
+	.bwwidthpercent72, .bwwidth72 {width:72%;} 
+	.bwwidthpercent73, .bwwidth73 {width:73%;} 
+	.bwwidthpercent74, .bwwidth74 {width:74%;} 
+	.bwwidthpercent75, .bwwidth75 {width:75%;} 
+	.bwwidthpercent76, .bwwidth76 {width:76%;} 
+	.bwwidthpercent77, .bwwidth77 {width:77%;} 
+	.bwwidthpercent78, .bwwidth78 {width:78%;} 
+	.bwwidthpercent79, .bwwidth79 {width:79%;} 
+	.bwwidthpercent80, .bwwidth80 {width:80%;} 
+	.bwwidthpercent81, .bwwidth81 {width:81%;} 
+	.bwwidthpercent82, .bwwidth82 {width:82%;} 
+	.bwwidthpercent83, .bwwidth83 {width:83%;} 
+	.bwwidthpercent84, .bwwidth84 {width:84%;} 
+	.bwwidthpercent85, .bwwidth85 {width:85%;} 
+	.bwwidthpercent86, .bwwidth86 {width:86%;} 
+	.bwwidthpercent87, .bwwidth87 {width:87%;} 
+	.bwwidthpercent88, .bwwidth88 {width:88%;} 
+	.bwwidthpercent89, .bwwidth89 {width:89%;} 
+	.bwwidthpercent90, .bwwidth90 {width:90%;} 
+	.bwwidthpercent91, .bwwidth91 {width:91%;} 
+	.bwwidthpercent92, .bwwidth92 {width:92%;} 
+	.bwwidthpercent93, .bwwidth93 {width:93%;} 
+	.bwwidthpercent94, .bwwidth94 {width:94%;} 
+	.bwwidthpercent95, .bwwidth95 {width:95%;} 
+	.bwwidthpercent96, .bwwidth96 {width:96%;} 
+	.bwwidthpercent97, .bwwidth97 {width:97%;} 
+	.bwwidthpercent98, .bwwidth98 {width:98%;} 
+	.bwwidthpercent99, .bwwidth99 {width:99%;} 
+	.bwwidthpercent100, .bwwidth100 {width:100%;} 
+}
+
+
+// FUNCTIONS
+@function fluidize($target, $context) 
+{
+	@return ( $target / $context ) * 100%;
+}
+

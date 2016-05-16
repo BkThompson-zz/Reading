@@ -1,0 +1,643 @@
+/* line 71, sass/readingrdi_style.scss */
+#bw-fixed-user-nav {
+  height: 30px;
+  font-family: "Proxima Nova Rg", Helvetica, Arial, Sans-Serif;
+  position: relative;
+  z-index: 999998;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #e1e0e0;
+}
+/* line 80, sass/readingrdi_style.scss */
+#bw-fixed-user-nav > div {
+  max-width: 972px;
+  margin: 0 auto;
+}
+/* line 84, sass/readingrdi_style.scss */
+body.not-logged-in #bw-fixed-user-nav {
+  display: none;
+}
+/* line 88, sass/readingrdi_style.scss */
+#bw-fixed-user-nav * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 92, sass/readingrdi_style.scss */
+#bw-fixed-user-nav ul.bw-user-links {
+  display: block;
+  width: 100%;
+  border: 1px solid #e1e0e0;
+  border-left: none;
+  border-right: none;
+  font-size: 0.85em;
+  background-color: tranparent;
+}
+/* line 101, sass/readingrdi_style.scss */
+#bw-fixed-user-nav ul.bw-user-links > li {
+  position: relative;
+  float: left;
+  display: block;
+  width: 15%;
+  margin: 0;
+  padding: 5px 10px;
+  background-color: #e1e0e0;
+  z-index: 10;
+}
+/* line 114, sass/readingrdi_style.scss */
+#bw-fixed-user-nav ul.bw-user-links > li:hover ul {
+  visibility: visible;
+  margin-top: 0;
+  padding-top: 28px;
+}
+/* line 120, sass/readingrdi_style.scss */
+#bw-fixed-user-nav ul.bw-user-links > li:hover li:hover {
+  background-color: #e1e0e0;
+}
+/* line 125, sass/readingrdi_style.scss */
+#bw-fixed-user-nav ul.bw-user-links > li:first-child {
+  width: 35%;
+}
+/* line 130, sass/readingrdi_style.scss */
+#bw-fixed-user-nav ul.bw-user-links > li:last-child {
+  width: 50%;
+}
+@media all and (max-width: 480px) {
+  /* line 101, sass/readingrdi_style.scss */
+  #bw-fixed-user-nav ul.bw-user-links > li {
+    width: 50%;
+  }
+  /* line 137, sass/readingrdi_style.scss */
+  #bw-fixed-user-nav ul.bw-user-links > li:first-child {
+    display: none;
+  }
+}
+/* line 142, sass/readingrdi_style.scss */
+#bw-fixed-user-nav ul.bw-user-links > li ul {
+  visibility: hidden;
+  display: block;
+  position: absolute;
+  background-color: #FFF;
+  border: 1px solid #e1e0e0;
+  border-top: 0;
+  top: 0;
+  left: 0;
+  padding: 20px 0 0 0;
+  margin-top: 0px;
+  margin-left: -1px;
+  text-indent: 0;
+  width: 100%;
+  z-index: -10;
+  -webkit-transition: all 0.327s;
+  -moz-transition: all 0.327s;
+  -o-transition: all 0.327s;
+  transition: all 0.327s;
+}
+/* line 159, sass/readingrdi_style.scss */
+#bw-fixed-user-nav ul.bw-user-links > li ul li {
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+}
+
+/* line 175, sass/readingrdi_style.scss */
+.g1-layout-inner {
+  max-width: 94.53125%;
+  width: 972px;
+  margin: 0 auto;
+}
+/* line 181, sass/readingrdi_style.scss */
+.g1-layout-inner > ul {
+  margin-left: 0px;
+}
+
+/* line 189, sass/readingrdi_style.scss */
+#breadcrumb {
+  padding-top: 10px;
+  text-transform: capitalize;
+  color: #666666;
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+/* line 191, sass/readingrdi_style.scss */
+#breadcrumb div {
+  margin-bottom: 1.5rem;
+  color: #999999;
+}
+/* line 202, sass/readingrdi_style.scss */
+#breadcrumb a {
+  color: #666666;
+}
+
+/* line 207, sass/readingrdi_style.scss */
+.page-newsroom-home #breadcrumb div a {
+  color: #666;
+}
+
+/* line 211, sass/readingrdi_style.scss */
+.page-newsroom-home #breadcrumb div a + a {
+  color: #999999;
+}
+
+/* line 218, sass/readingrdi_style.scss */
+#breadcrumb div a::before {
+  font-family: FontAwesome;
+  font-size: 14px;
+  margin-right: 0.5em;
+}
+
+/* line 224, sass/readingrdi_style.scss */
+#breadcrumb div a::before {
+  content: "";
+  color: #999999;
+}
+
+/* line 229, sass/readingrdi_style.scss */
+#breadcrumb div a + a::before {
+  margin-right: 0;
+}
+
+/* line 233, sass/readingrdi_style.scss */
+#breadcrumb div a + a::before {
+  content: "";
+}
+
+/* line 240, sass/readingrdi_style.scss */
+.general-wrapper-about-section-one > h1 {
+  margin-bottom: 10px;
+}
+
+/* line 249, sass/readingrdi_style.scss */
+.nav-about-us > ul {
+  width: 960px;
+}
+/* line 252, sass/readingrdi_style.scss */
+.nav-about-us > ul li {
+  z-index: 110;
+  margin-right: 0;
+  padding-right: 22px;
+}
+
+/* line 266, sass/readingrdi_style.scss */
+#customChartQuote {
+  border: 1px solid #f4f1ec;
+  border-collapse: inherit;
+  border-spacing: 0;
+  max-width: 962px;
+}
+/* line 272, sass/readingrdi_style.scss */
+#customChartQuote #bwqm100 {
+  color: #ffffff;
+  font-size: 13px;
+  padding: 2px 10px;
+  background-color: #8c0000;
+}
+/* line 278, sass/readingrdi_style.scss */
+#customChartQuote #bwqm100 span {
+  color: #ffffff;
+}
+/* line 284, sass/readingrdi_style.scss */
+#customChartQuote tr td.row-4,
+#customChartQuote tr td.row-6 {
+  background-color: #f4f1ec;
+  border: 2px solid #fff;
+  padding: 0 10px;
+}
+/* line 290, sass/readingrdi_style.scss */
+#customChartQuote tr #bwqm125, #customChartQuote #bwqm126, #customChartQuote #bwqm127, #customChartQuote #bwqm128, #customChartQuote #bwqm113, #customChartQuote #bwqm114, #customChartQuote #bwqm115, #customChartQuote #bwqm116 {
+  background-color: #f4f1ec;
+  border: 2px solid #fff;
+  padding: 0 10px;
+}
+
+/* line 303, sass/readingrdi_style.scss */
+.pane-1 .pane-content {
+  width: 100%;
+  padding-left: 50px;
+}
+/* line 307, sass/readingrdi_style.scss */
+.pane-1 .pane-content > p {
+  display: inline-block;
+  margin-bottom: 0px;
+  margin-left: 43px;
+}
+/* line 313, sass/readingrdi_style.scss */
+.pane-1 .pane-content .press-release-icon {
+  float: left;
+  clear: both;
+  margin-right: 30px;
+}
+/* line 318, sass/readingrdi_style.scss */
+.pane-1 .pane-content .press-release-icon img {
+  margin-left: 5px;
+}
+/* line 322, sass/readingrdi_style.scss */
+.pane-1 .pane-content .press-release-icon + p {
+  float: left;
+  clear: both;
+}
+/* line 329, sass/readingrdi_style.scss */
+.pane-1 .pane-content .stock-info-icon,
+.pane-1 .pane-content .sec-icon {
+  margin-right: 30px;
+}
+/* line 332, sass/readingrdi_style.scss */
+.pane-1 .pane-content .stock-info-icon + p,
+.pane-1 .pane-content .sec-icon + p {
+  float: left;
+}
+/* line 335, sass/readingrdi_style.scss */
+.pane-1 .pane-content .stock-info-icon + p > a,
+.pane-1 .pane-content .sec-icon + p > a {
+  margin-left: 20px;
+}
+/* line 341, sass/readingrdi_style.scss */
+.pane-1 .pane-content .email-icon {
+  margin-right: 30px;
+}
+/* line 344, sass/readingrdi_style.scss */
+.pane-1 .pane-content .email-icon + p {
+  float: left;
+}
+/* line 347, sass/readingrdi_style.scss */
+.pane-1 .pane-content .email-icon + p > a {
+  margin-left: 52px;
+}
+/* line 355, sass/readingrdi_style.scss */
+.pane-1 .pane-content .contact-icon + p {
+  float: left;
+}
+/* line 358, sass/readingrdi_style.scss */
+.pane-1 .pane-content .contact-icon + p > a {
+  margin-left: 50px;
+}
+
+/* line 369, sass/readingrdi_style.scss */
+.pane-bw-press-release-panel-pane-6 {
+  display: inline-block;
+  background-color: #f4f1ec;
+  margin-top: 40px;
+  width: 960px;
+}
+/* line 375, sass/readingrdi_style.scss */
+.pane-bw-press-release-panel-pane-6 h2 {
+  font-weight: bold;
+  margin: 20px;
+  float: left;
+  display: block;
+}
+/* line 382, sass/readingrdi_style.scss */
+.pane-bw-press-release-panel-pane-6 .view-bw-press-release {
+  margin: 20px;
+}
+/* line 385, sass/readingrdi_style.scss */
+.pane-bw-press-release-panel-pane-6 .view-bw-press-release .views-field-created {
+  float: left;
+  margin-right: 25px;
+}
+/* line 390, sass/readingrdi_style.scss */
+.pane-bw-press-release-panel-pane-6 .view-bw-press-release .views-field-title a {
+  color: #884610;
+}
+/* line 394, sass/readingrdi_style.scss */
+.pane-bw-press-release-panel-pane-6 .view-bw-press-release .views-row a {
+  display: block;
+  padding-left: 98px;
+  width: 80%;
+}
+/* line 401, sass/readingrdi_style.scss */
+.pane-bw-press-release-panel-pane-6 .more-link {
+  padding-top: 30px;
+}
+/* line 405, sass/readingrdi_style.scss */
+.pane-bw-press-release-panel-pane-6 .more-link a:after {
+  content: " >>";
+}
+/* line 409, sass/readingrdi_style.scss */
+.pane-bw-press-release-panel-pane-6 .more-link a {
+  color: #884610;
+  margin-right: 20px;
+}
+
+/* line 421, sass/readingrdi_style.scss */
+.page-newsroom-home .pane-2 h2 {
+  margin: 0 auto;
+  width: 37%;
+  font-weight: bold;
+  margin-top: 20px;
+}
+/* line 428, sass/readingrdi_style.scss */
+.page-newsroom-home .pane-2 .pane-content {
+  margin: 0 auto;
+  width: 37%;
+}
+/* line 434, sass/readingrdi_style.scss */
+.page-newsroom-home .pane-2 .pane-content p img {
+  float: left;
+  margin-right: 5px;
+}
+/* line 439, sass/readingrdi_style.scss */
+.page-newsroom-home .pane-2 .pane-content p a {
+  display: inline-block;
+  margin-top: 25px;
+}
+
+/* line 453, sass/readingrdi_style.scss */
+.bw-rotating-content-pane .rotating-content-pager {
+  margin-top: 275px;
+  z-index: 1000;
+}
+/* line 457, sass/readingrdi_style.scss */
+.bw-rotating-content-pane .rotating-content-pager a {
+  border-radius: 20px;
+  border-color: #fff;
+  border-width: 2px;
+  opacity: 0.75;
+  padding: 0px 10px;
+}
+/* line 465, sass/readingrdi_style.scss */
+.bw-rotating-content-pane .rotating-content-pager a.activeSlide {
+  background-color: #fff;
+}
+
+/* line 474, sass/readingrdi_style.scss */
+#customChartQuote {
+  width: 99%;
+}
+
+/* line 483, sass/readingrdi_style.scss */
+.page-press-releases .pane-navigation-bar {
+  padding-top: 30px;
+}
+/* line 488, sass/readingrdi_style.scss */
+.page-press-releases .pane-navigation-bar .pane-content a {
+  color: #8c0000;
+}
+/* line 492, sass/readingrdi_style.scss */
+.page-press-releases .pane-navigation-bar .pane-content a:after {
+  content: " | ";
+}
+/* line 496, sass/readingrdi_style.scss */
+.page-press-releases .pane-navigation-bar .pane-content a + a + a + a + a + :after {
+  content: "";
+}
+/* line 504, sass/readingrdi_style.scss */
+.page-press-releases .pane-1 .pane-content {
+  padding-left: 0;
+}
+/* line 508, sass/readingrdi_style.scss */
+.page-press-releases .pane-1 .pane-content p {
+  margin-left: 0;
+}
+/* line 511, sass/readingrdi_style.scss */
+.page-press-releases .pane-1 .pane-content p a {
+  margin-right: 5px;
+}
+/* line 520, sass/readingrdi_style.scss */
+.page-press-releases .view-bw-press-release .views-field-created {
+  float: left;
+  padding-right: 25px;
+}
+/* line 527, sass/readingrdi_style.scss */
+.page-press-releases .view-bw-press-release .views-field-title a {
+  color: #884610;
+}
+/* line 534, sass/readingrdi_style.scss */
+.page-press-releases .view-bw-press-release .views-row a {
+  display: block;
+  padding-left: 98px;
+  width: 80%;
+}
+/* line 541, sass/readingrdi_style.scss */
+.page-press-releases .view-bw-press-release .views-field-field-press-release-subheadline-value {
+  display: none;
+}
+/* line 545, sass/readingrdi_style.scss */
+.page-press-releases .view-bw-press-release .views-field-field-press-release-subheadline-value p {
+  margin-left: 98px;
+}
+/* line 549, sass/readingrdi_style.scss */
+.page-press-releases .view-bw-press-release .views-field-field-press-release-subheadline-value ul {
+  padding-left: 98px;
+}
+/* line 555, sass/readingrdi_style.scss */
+.page-press-releases .view-bw-press-release .pager {
+  padding-top: 25px;
+}
+/* line 562, sass/readingrdi_style.scss */
+.page-press-releases #bw-advanced-search-form #edit-keywords {
+  width: 33%;
+}
+
+/* line 571, sass/readingrdi_style.scss */
+.page-press-releases .press-release-date {
+  float: left;
+  margin-right: 65px;
+}
+
+/* line 576, sass/readingrdi_style.scss */
+.page-press-releases #panels-ipe-paneid-28 .pane-content {
+  background-color: #8c0000;
+  height: 27px;
+}
+
+/* line 582, sass/readingrdi_style.scss */
+.page-press-releases #panels-ipe-paneid-28 .pane-content .press-release-date,
+.page-press-releases #panels-ipe-paneid-28 .pane-content .press-release-title {
+  color: #fff;
+  padding-top: 3px;
+  padding-left: 20px;
+}
+
+/* line 588, sass/readingrdi_style.scss */
+.not-logged-in.page-press-releases #bw-content-content .pane-1 .pane-content {
+  background-color: #8c0000;
+  height: 27px;
+}
+
+/* line 594, sass/readingrdi_style.scss */
+.not-logged-in.page-press-releases #bw-content-content .pane-1 .press-release-date,
+.page-press-releases #bw-content-content .pane-1 .pane-content .press-release-title {
+  color: #fff;
+  padding-top: 3px;
+  padding-left: 20px;
+}
+
+/* line 600, sass/readingrdi_style.scss */
+.page-press-releases .pane-bw-press-release-panel-pane-19 {
+  background-color: #f4f1ec;
+  padding-top: 20px;
+}
+
+/* line 605, sass/readingrdi_style.scss */
+.page-press-releases .pane-bw-press-release-panel-pane-19 .view-content ul {
+  padding-left: 13px;
+  padding-bottom: 15px;
+}
+
+/* line 610, sass/readingrdi_style.scss */
+.page-press-releases .pane-bw-press-release-panel-pane-19 ul.pager {
+  background-color: #fff;
+}
+
+/* line 614, sass/readingrdi_style.scss */
+.page-press-releases .item-list .pager {
+  clear: both;
+  text-align: right;
+  padding-top: 15px;
+}
+
+/* line 619, sass/readingrdi_style.scss */
+.page-press-releases .pane-views-panes {
+  display: inherit;
+  margin-top: 0px;
+}
+
+/* line 625, sass/readingrdi_style.scss */
+.page-press-releases .item-list ul li {
+  margin: 0 0 0.25em 0.5em;
+}
+
+/* line 629, sass/readingrdi_style.scss */
+.page-press-releases .item-list .pager li {
+  background-image: none;
+  display: inline;
+  list-style-type: none;
+  padding: 0;
+}
+
+/* line 636, sass/readingrdi_style.scss */
+.page-press-releases .pane-views-panes {
+  display: inherit;
+  margin-top: 0px;
+}
+
+/* line 648, sass/readingrdi_style.scss */
+.page-stock-chart .qmmt_header_bar {
+  display: none;
+}
+/* line 652, sass/readingrdi_style.scss */
+.page-stock-chart .qmContent {
+  float: left;
+}
+/* line 655, sass/readingrdi_style.scss */
+.page-stock-chart .qmContent #interactiveChart {
+  width: 960px;
+}
+/* line 659, sass/readingrdi_style.scss */
+.page-stock-chart .qmContent table.qmmt_main {
+  width: 960px;
+}
+/* line 664, sass/readingrdi_style.scss */
+.page-stock-chart .qmmt_main {
+  width: 960px;
+}
+/* line 668, sass/readingrdi_style.scss */
+.page-stock-chart #qmcb-chart-img {
+  width: auto;
+  height: 100%;
+}
+
+/* line 687, sass/readingrdi_style.scss */
+.page-search .pane-apachesolr-sort .item-list ul li,
+.page-advsearch .pane-apachesolr-sort .item-list ul li {
+  display: inline-block;
+  list-style: none;
+  margin-left: 0px;
+}
+/* line 692, sass/readingrdi_style.scss */
+.page-search .pane-apachesolr-sort .item-list ul li img,
+.page-advsearch .pane-apachesolr-sort .item-list ul li img {
+  border: none;
+  display: block;
+}
+/* line 697, sass/readingrdi_style.scss */
+.page-search .pane-apachesolr-sort .item-list ul li + li,
+.page-advsearch .pane-apachesolr-sort .item-list ul li + li {
+  margin-left: 15px;
+}
+/* line 709, sass/readingrdi_style.scss */
+.page-search .pane-advanced-searchresults .solrsearch_search-results dd,
+.page-advsearch .pane-advanced-searchresults .solrsearch_search-results dd {
+  margin-left: 0px;
+}
+
+/* line 716, sass/readingrdi_style.scss */
+.page-search .bw-sidebar .panel-pane ul li {
+  list-style-type: none;
+}
+
+/* line 727, sass/readingrdi_style.scss */
+.page-advsearch .pane-apachesolr-sort h2 {
+  float: left;
+  margin-right: 20px;
+}
+/* line 737, sass/readingrdi_style.scss */
+.page-advsearch .pane-advanced-searchresults #bw-search h2 {
+  position: absolute;
+  margin-top: 10px;
+}
+/* line 742, sass/readingrdi_style.scss */
+.page-advsearch .pane-advanced-searchresults #bw-search dl.search-results {
+  padding-top: 50px;
+}
+
+/* line 752, sass/readingrdi_style.scss */
+.page-advsearch #bw-search dl.search-results {
+  padding-top: 50px;
+}
+
+/* line 759, sass/readingrdi_style.scss */
+#bw_tag a {
+  color: #fff;
+}
+
+/* line 770, sass/readingrdi_style.scss */
+.bw-adv-search-reset-btn-span a {
+  padding-top: 10px;
+  display: block;
+}
+
+/* line 783, sass/readingrdi_style.scss */
+.page-advsearch #bw-search h2 {
+  border: block;
+  padding-top: 10px;
+}
+/* line 788, sass/readingrdi_style.scss */
+.page-advsearch #bw-search ul {
+  border: block;
+  padding-top: 60px;
+  margin-left: 0;
+}
+/* line 793, sass/readingrdi_style.scss */
+.page-advsearch #bw-search ul li {
+  list-style-type: none;
+  padding-top: 10px;
+}
+
+/* line 805, sass/readingrdi_style.scss */
+html.js input.form-autocomplete {
+  background-position: 100% 40px;
+}
+
+/* line 811, sass/readingrdi_style.scss */
+.node-type-press-release .multimedia-grid {
+  padding-right: 50px;
+}
+
+/* line 823, sass/readingrdi_style.scss */
+.node-type-press-release #bw-content-content .pane-content ul {
+  list-style-type: disc;
+}
+/* line 828, sass/readingrdi_style.scss */
+.node-type-press-release #bw-content-content .pane-content ul li ul {
+  list-style-type: circle;
+}
+
+/* line 840, sass/readingrdi_style.scss */
+.page-user form .nodetypeterm {
+  margin-left: 10px;
+}

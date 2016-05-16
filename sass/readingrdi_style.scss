@@ -1,0 +1,856 @@
+// BW SASS TEMPLATE
+//
+// Date:	12/12/2014
+// By:		Jonathan Day, Michael Devin, Patrick Regan, Rob Carroll
+// Base: 	HQ
+// 
+// Notes:
+// ------------------------- 
+// 12/04/14 - combined adaptive overrides and generic sass templates
+//          
+
+// COMPASS (http://compass-style.org/)
+// - compass offers many functions and mixins to make coding cross browser code more efficient. 
+@import "compass";
+@import "compass/css3";
+// @import "compass/layout"; // includes +stretch
+//
+// Compass Examples 
+// @include box-sizing(border-box); // http://compass-style.org/reference/compass/css3/box_sizing/
+// @include single-transition($property, $duration, $function); // http://compass-style.org/reference/compass/css3/transition/
+// @include background-image(linear-gradient(left top, white, #dddddd)); // http://compass-style.org/examples/compass/css3/gradient/
+// @include single-box-shadow($color, $hoff, $voff, $blur, $spread, $inset) // http://compass-style.org/reference/compass/css3/box_shadow/
+//
+// BW'S CUSTOM MIXINS
+// - we have created a number of mixins specific to our sites. Remember to set 
+// - $bw-content and $bw-content-content variables to match your clients template
+// - variables for mixins:
+
+$borderColor: #E1E0E0; 						// border colors used in mixins
+$linkColor: #00F; 							// link colors used in mixins
+$grayColor: #666; 							// link colors used in mixins
+$pressColor: #884610;
+$bw-content: '#bw-content';					// used to set parent containers in mixins
+$bw-content-content: '#bw-content-content'; // used to set parent containers in mixins 
+
+@import '_mixins.scss';
+// - simply uncomment the mixins below to use them
+// 
+// @include hasEvents(); 
+// @include oneColumnAdvancedSearch();
+// @include oneColumnSearch();
+// @include font-smoothing();
+// @include bwFooterLink (); // options (bwFooterLink(parentWidth, margin, padding, background-color, link color, text-align)
+// @include fixPageNotFound();
+// @include fixRSSPage();
+// @include fixUserPages();
+// @include fixTaxonomyPages();
+// @include fixThrobber() // options (default image, throbbing image) - correct placement of throbber image with pixel offsets
+// @include fixRecaptcha
+// @include fixInputCalendar;
+// @include addPagerFont(); // options (link color, font size, mobile width in pixels)
+// @include addShareThisFont(); // options (color, ShareThis icon[boolean, usually set to false], fontsize, hover opacity)
+// @include hasBwCommitteeTable(); // options(link color, border color, mobile width in pixels)
+// @include cycle2(); // options($pagerLocation: "above | right | below (default) | left ", $pagerType: "default | circle | square | number | hidden ", $numOfItems: 3 (default), $pagerButtons: true (default), $imageAsBackground: true (default), $linkColor: $linkColor (default), $borderColor: $borderColor (default), $fontSize: 22px(default));
+// @include addBwStyles(); // adds Business Wire styles for BW press releases
+//
+// EXTENDS
+// - These can be helpful. They set properties that match exactly
+// - example
+//   %reusableStyle { your style(s) here }
+//   then use in your code .someClass { @extend %reusableStyles;  more-styles... }
+//
+// FUNCTIONS
+// - common operations to determine values
+// fluidize(target,context); // i.e. if target is 300px parent/context is 900 33.33333% is returned
+
+// <------- YOUR STYLES GO HERE ----->
+
+
+// User Nav
+#bw-fixed-user-nav {
+	height: 30px;
+	font-family:"Proxima Nova Rg", Helvetica, Arial, Sans-Serif;
+	position: relative;
+	//margin-bottom: 25px;
+	z-index: 999998;
+	@include box-sizing(border-box);
+	background-color: $borderColor;
+
+	> div {
+		max-width: 972px;
+		margin: 0 auto;
+	}
+	body.not-logged-in & {
+		display: none;
+	}
+
+	* {
+		@include box-sizing(border-box);
+	}
+
+	ul.bw-user-links {
+		display: block; 
+		width: 100%;
+		border: 1px solid $borderColor;
+		border-left: none;
+		border-right: none;
+		font-size: 0.85em;
+		background-color: tranparent;
+
+		> li {
+			position: relative;
+			float: left;
+			display: block;
+			width: 15%;
+			margin: 0;
+			padding: 5px 10px;
+			background-color: $borderColor;
+			// border-right: 1px solid $borderColor;
+			z-index: 10;
+
+			&:hover {
+
+				ul {
+				  visibility: visible;
+				  margin-top: 0;
+				  padding-top: 28px;
+				}
+
+				li:hover {
+					background-color: $borderColor;	
+				}	
+			}
+
+			&:first-child {
+				width: 35%;
+				// border-left: 1px solid #CCC;
+			}
+
+			&:last-child {
+				width: 50%;
+			}
+
+			@media all and (max-width: 480px ) {
+				width: 50%;
+
+				&:first-child {
+					display: none;
+				}
+			}
+
+			ul {
+				visibility: hidden;
+				display: block;
+				position: absolute;
+				background-color: #FFF;
+				border: 1px solid $borderColor;
+				border-top: 0;
+				top: 0;
+				left: 0;
+				padding: 20px 0 0 0;
+				margin-top: 0px;
+				margin-left: -1px;
+				text-indent: 0;
+				width: 100%;
+				z-index: -10;
+				@include transition(all 0.327s);
+
+				li {
+					list-style: none;
+					padding: 5px;
+					margin: 0;
+					text-align: left;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+//GLOBAL
+
+//Container 
+
+.g1-layout-inner {
+
+	max-width: 94.53125%; 
+	width: 972px;
+ 	margin: 0 auto;
+
+ 	> ul{ 
+  		margin-left: 0px;
+  	}
+}
+
+
+// Breadcrumb
+
+#breadcrumb {
+
+	div {
+		margin-bottom: 1.5rem;
+		color: #999999;
+	}
+	
+	padding-top: 10px;
+ 	text-transform: capitalize;
+  	color: $grayColor;
+  	font-size: 12px;
+  	padding-bottom: 10px;
+
+  	a {
+  		color: $grayColor;
+  	}
+}
+
+.page-newsroom-home #breadcrumb div a  {
+  	color: #666;
+}
+
+.page-newsroom-home #breadcrumb div a + a {
+  	color: #999999;
+}
+
+
+// Breadcrumb icon
+
+#breadcrumb div a::before {
+  	font-family: FontAwesome ;
+  	font-size: 14px;
+  	margin-right: 0.5em;
+}
+
+#breadcrumb div a::before {
+  	content: "";
+  	color: #999999;
+}
+
+#breadcrumb div a + a::before {
+  	margin-right: 0;
+}
+
+#breadcrumb div a + a::before {
+  	content: "";
+}
+
+
+.general-wrapper-about-section-one {
+
+	> h1 {
+		margin-bottom: 10px;
+	}
+}
+
+// Primary Links 
+
+.nav-about-us {
+
+	> ul { 
+		width: 960px;
+
+		li {
+  			z-index: 110;
+  			margin-right: 0;
+  			padding-right: 22px;
+
+  			+ li  {
+ 				//margin-left: 20px
+			}
+		}
+	}
+}
+
+// Stock Information
+
+#customChartQuote {
+  	border: 1px solid #f4f1ec;
+  	border-collapse: inherit;
+  	border-spacing: 0;
+  	max-width: 962px;
+
+  	#bwqm100 {
+  		color: #ffffff;
+  		font-size: 13px;
+  		padding: 2px 10px;
+  		background-color: #8c0000;
+
+  		span {
+  			color: #ffffff;
+		}
+	}
+
+	tr td.row-4,
+	tr td.row-6 {
+  		background-color: #f4f1ec;
+  		border: 2px solid #fff;
+  		padding: 0 10px;
+	}
+
+	tr #bwqm125, #bwqm126, #bwqm127,#bwqm128, #bwqm113, #bwqm114, #bwqm115, #bwqm116 { 
+  		background-color: #f4f1ec; 
+  		border: 2px solid #fff;
+  		padding: 0 10px;
+	}
+}
+
+
+
+// Homepage - Social Icons Section
+
+.pane-1 {
+
+	.pane-content {
+		width: 100%;
+  		padding-left: 50px;
+
+		> p {
+ 			display: inline-block;
+  			margin-bottom: 0px;
+  			margin-left: 43px;
+  		}
+
+  		.press-release-icon  {
+  			float: left;
+  			clear: both;
+  			margin-right: 30px;
+
+  			img {
+  				margin-left: 5px
+			}
+
+			+ p {
+  				float: left;
+  				clear: both;
+			}
+		}
+
+		.stock-info-icon,
+		.sec-icon {
+			margin-right: 30px;
+
+			+ p {
+  				float: left;
+
+  				> a{
+					margin-left: 20px;
+				}
+			}
+		}
+
+		.email-icon   {
+			margin-right: 30px;
+
+			+ p {
+  				float: left;
+
+  				> a{
+					margin-left: 52px;
+				}
+			}
+		}
+
+		.contact-icon {
+
+			+ p {
+  				float: left;
+
+  				> a{
+					margin-left: 50px;
+				}
+			}
+		}
+  	}
+}
+
+
+// Homepage - Recent Announcements Section
+
+.pane-bw-press-release-panel-pane-6 {
+	display: inline-block;
+ 	background-color: #f4f1ec;
+  	margin-top: 40px;
+  	width: 960px;
+
+  	h2 {
+		font-weight: bold;
+  		margin: 20px;
+  		float: left;
+  		display: block;
+	}
+
+  	.view-bw-press-release {
+		margin: 20px;
+
+		.views-field-created {
+  			float: left;
+  			margin-right: 25px;
+		}
+
+		.views-field-title a {
+  			color: #884610;
+		}
+
+		.views-row a {
+  			display: block;
+ 			padding-left: 98px;
+  			width: 80%;
+		}		
+	}
+
+	.more-link {
+  		padding-top: 30px;
+	}
+
+	.more-link a:after {
+		content: " >>";
+	}
+
+	.more-link a {
+  		color: #884610;
+  		margin-right: 20px;
+	}
+}
+
+// Homepage - Email Alerts Secion
+
+.page-newsroom-home {
+
+	.pane-2 {
+
+		h2 { 
+  			margin: 0 auto;
+  			width: 37%;
+  			font-weight: bold;
+ 			margin-top: 20px;
+		}
+
+		.pane-content {
+			margin: 0 auto;
+  			width: 37%;
+
+  			p {
+
+  				img {
+  					float: left;
+  					margin-right: 5px;
+				}
+
+				a {
+  					display: inline-block;
+ 					margin-top: 25px;
+				}
+			}	
+		}
+	}
+}
+
+
+//Rotating Banner
+
+.bw-rotating-content-pane {
+
+	.rotating-content-pager  {
+		margin-top: 275px;
+  		z-index: 1000;
+
+  		a {
+  			border-radius: 20px;
+			border-color: #fff;  
+  			border-width: 2px;
+			opacity: 0.75;
+			padding: 0px 10px;
+		}
+
+		a.activeSlide {
+  			background-color: #fff;
+		}
+	}
+}
+
+
+//Stock Quote - Temp code, will remove later
+
+#customChartQuote {
+width: 99%;
+}
+
+
+//Press Releases Page
+
+.page-press-releases { 
+
+	.pane-navigation-bar   {
+  		padding-top: 30px;
+
+  		.pane-content {
+
+  		  	a  {
+  				color: #8c0000;
+  			}
+
+  			a:after  {
+				content: " | ";
+			}
+
+			a + a + a + a + a + :after  {
+				content: "";
+			}
+		}
+	}
+
+	.pane-1 {
+
+		.pane-content {
+			//margin-top: 40px;
+  			padding-left: 0;
+
+  			p {
+  				margin-left: 0;
+
+  				a {
+  					margin-right: 5px;
+				}
+			}
+		}
+	}
+
+	.view-bw-press-release {
+
+		.views-field-created {
+  			float: left;
+  			padding-right: 25px;
+		}
+
+		.views-field-title {
+
+			 a {
+  				color: #884610;
+			}
+		}
+
+		.views-row {
+
+			a {
+  				display: block;
+  				padding-left: 98px;
+				width: 80%;
+			}
+		}
+
+		.views-field-field-press-release-subheadline-value { 
+			// padding-top: 10px;
+			display: none;
+
+			p {
+    			margin-left: 98px;
+			}
+
+			ul  {
+				padding-left: 98px;
+			}
+
+		}
+
+		.pager{
+			padding-top: 25px;
+		}
+	}
+
+	#bw-advanced-search-form {
+
+		#edit-keywords {
+			width: 33%;
+		}	
+	}
+}
+
+
+// Press Release Changes
+
+.page-press-releases  .press-release-date {
+  float: left;
+  margin-right: 65px;
+}
+
+.page-press-releases #panels-ipe-paneid-28 .pane-content {
+  background-color:  #8c0000;
+  height: 27px;
+}
+
+.page-press-releases #panels-ipe-paneid-28 .pane-content .press-release-date,
+.page-press-releases #panels-ipe-paneid-28 .pane-content .press-release-title{
+  color: #fff;
+  padding-top: 3px;
+  padding-left: 20px;
+}
+
+.not-logged-in.page-press-releases #bw-content-content .pane-1 .pane-content {
+  background-color:  #8c0000;
+  height: 27px;
+}
+
+.not-logged-in.page-press-releases #bw-content-content .pane-1 .press-release-date,
+.page-press-releases #bw-content-content .pane-1 .pane-content .press-release-title{
+  color: #fff;
+  padding-top: 3px;
+  padding-left: 20px;
+}
+
+.page-press-releases .pane-bw-press-release-panel-pane-19 {
+  background-color: #f4f1ec;
+  padding-top: 20px;
+}
+
+.page-press-releases .pane-bw-press-release-panel-pane-19 .view-content ul {
+  padding-left: 13px;
+  padding-bottom: 15px;
+}
+
+.page-press-releases .pane-bw-press-release-panel-pane-19  ul.pager {
+   background-color: #fff;
+}
+
+.page-press-releases .item-list .pager {
+  clear: both;
+  text-align: right;
+  padding-top: 15px;
+}
+.page-press-releases .pane-views-panes {
+
+  display: inherit;
+  margin-top: 0px;
+}
+
+.page-press-releases .item-list ul li {
+  margin: 0 0 0.25em 0.5em;
+}
+
+.page-press-releases  .item-list .pager li {
+  background-image: none;
+  display: inline;
+  list-style-type: none;
+  padding: 0;
+}
+
+.page-press-releases .pane-views-panes {
+  display: inherit;
+  margin-top: 0px;
+}
+
+
+
+
+// Stock Chart Page
+
+.page-stock-chart {
+
+	.qmmt_header_bar {
+		display: none;
+	}
+
+	.qmContent {
+		float: left;
+
+		 #interactiveChart {
+ 			 width: 960px;
+ 		}
+
+ 		table.qmmt_main {
+  			width: 960px;
+		}
+ 	}
+
+ 	.qmmt_main {
+		width: 960px;
+	}
+
+	#qmcb-chart-img {
+  		width: auto;;
+  		height: 100%
+	}
+}
+
+// Search & Advance Search - sort by
+
+// Sort by 
+
+.page-search,
+.page-advsearch {
+
+  .pane-apachesolr-sort {
+
+    .item-list {
+
+      ul {
+
+        li {
+          display: inline-block;
+          list-style: none;
+          margin-left: 0px;
+
+          img {
+             border: none;
+             display: block;
+          }
+
+          + li {
+              margin-left: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .pane-advanced-searchresults {
+
+    .solrsearch_search-results {
+
+      dd {
+        margin-left: 0px;
+      }
+    }
+  } 
+}
+
+.page-search .bw-sidebar .panel-pane ul li {
+  	list-style-type: none;
+}
+
+
+// Advance Search
+
+.page-advsearch {
+
+	.pane-apachesolr-sort {
+
+		h2 {
+			float: left;
+  			margin-right: 20px;
+  		}
+  	}
+
+  	.pane-advanced-searchresults {
+
+  		 #bw-search {
+
+  		 	h2 {
+  				position: absolute;
+  				margin-top: 10px;
+			}
+
+			dl.search-results {
+				padding-top: 50px;
+			}
+		}
+	}
+}
+
+
+
+
+.page-advsearch #bw-search dl.search-results {
+	padding-top: 50px;
+}
+
+
+// Footer
+
+#bw_tag a {
+	color: #fff;
+}
+
+
+// QA TICKETS
+
+// HQSITES-7490
+
+.bw-adv-search-reset-btn-span {
+
+	a {
+		padding-top: 10px;
+   		display: block;
+   	}
+} 
+
+
+// HQSITES-7489
+
+.page-advsearch {
+
+	#bw-search {
+
+		h2 {
+			border: block;
+			padding-top: 10px;
+		}
+
+		ul {
+			border: block;
+  			padding-top: 60px;
+  			margin-left: 0;
+
+  			li {
+				list-style-type: none;
+  				padding-top: 10px;
+			}
+		}
+	}
+}
+
+
+// HQSITES-7489
+
+// Ajax Throbber
+html.js input.form-autocomplete {
+  background-position: 100% 40px;
+}
+
+
+// HQSITES-74501
+.node-type-press-release .multimedia-grid {
+	padding-right: 50px;
+}
+
+
+// HQSITES-7506
+.node-type-press-release {
+
+	#bw-content-content {
+
+		.pane-content {
+
+			ul {
+				list-style-type: disc;
+
+				li {
+
+					ul {
+						list-style-type: circle;
+					}
+				}
+			}
+		}
+	}
+}
+  
+
+// HQSITES-7510
+
+.page-user  form .nodetypeterm {
+  margin-left: 10px;
+}
+
+
+
+// Code to remove pointer from Social Icons on newsroom home
+
+//.page-newsroom-home .pane-1 .pane-content p a img {
+	//pointer-events: none ;
+//}
+
+ 
+
+// ADAPTIVE OVERRIDES
+// if your site is Adapative Responsive, uncomment the line below
+// @import '_overrides.scss'; 

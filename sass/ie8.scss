@@ -1,0 +1,24 @@
+@import "compass";
+@import "compass/css3";
+@import "desktop-only";
+
+/**************************************
+* BW IE8 Overrides
+**************************************/
+
+// YOUR STYLES HERE
+
+
+// ADAPTIVE OVERRIDES
+/* IE8 Media Queries */
+.bw_max_1.bw_mobile_on { 
+	@import "all-mobile";
+}
+
+.bw_max_1.bw_min_3.bw_mobile_on { 
+	@import "only-tablet";
+}
+
+.bw_max_3.bw_mobile_on { 
+	@import "only-phone";
+}

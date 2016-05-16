@@ -1,0 +1,455 @@
+/**************************************
+* BW IE8 Overrides
+**************************************/
+
+/* Header Section */ 
+
+#g1-mobile-logo {
+	display: none !important;
+}
+
+#g1-primary-nav-switch {
+	display: none;
+}
+
+#g1-primary-nav-menu > .menu-item > a {
+  	padding-left: 10px !important;
+  	padding-right: 10px !important;
+}
+
+#g1-primary-nav-menu > .menu-item {
+  	float: left;
+}
+
+
+
+/* Social Icon Section */
+
+.page-newsroom-home .pane-1 img {
+    display: none !important;
+}
+
+.page-newsroom-home .pane-1 .pane-content .press-release-icon {
+	margin-left: 25px !important;
+  	margin-right: 30px !important;
+}
+
+.page-newsroom-home .pane-1 p.press-release-icon  {
+	background: url("/sites/readingrdi.investorhq.businesswire.com/themes/readingrdi.investorhq.businesswire.com/client_files/images/press-releases_icon.png")!important;
+   	width: 140px;
+    height: 80px;
+    background-repeat: no-repeat !important;
+}
+  
+.page-newsroom-home .pane-1 p.stock-info-icon  {
+	background: url("/sites/readingrdi.investorhq.businesswire.com/themes/readingrdi.investorhq.businesswire.com/client_files/images/stock_info.png")!important;
+   	width: 140px;
+    height: 80px;
+    background-repeat: no-repeat !important;
+}
+  
+.page-newsroom-home .pane-1 p.sec-icon  {
+	background: url("/sites/readingrdi.investorhq.businesswire.com/themes/readingrdi.investorhq.businesswire.com/client_files/images/sec_filings.png")!important;
+   	width: 140px;
+    height: 80px;
+    background-repeat: no-repeat !important;
+}
+ 
+.page-newsroom-home .pane-1 p.email-icon  {
+	background: url("/sites/readingrdi.investorhq.businesswire.com/themes/readingrdi.investorhq.businesswire.com/client_files/images/email_alerts.png")!important;
+   	width: 140px;
+    height: 80px;
+    background-repeat: no-repeat !important;
+}
+  
+.page-newsroom-home .pane-1 p.contact-icon  {
+	background: url("/sites/readingrdi.investorhq.businesswire.com/themes/readingrdi.investorhq.businesswire.com/client_files/images/contact_us.png") !important;
+   	width: 140px;
+    height: 80px;
+    background-repeat: no-repeat !important;
+}
+
+.page-newsroom-home .pane-1 .pane-content > p {
+  	margin-left: 0px !important;
+}
+
+.page-newsroom-home .pane-1 .pane-content .press-release-icon + p > a {
+  	margin-left: 20px !important;
+}
+
+.page-newsroom-home .pane-1 .pane-content .stock-info-icon + p > a {
+  	margin-right: 55px !important;
+  	margin-left: 70px !important;
+}
+
+.page-newsroom-home .pane-1 .pane-content .sec-icon + p > a {
+  	margin-right: 70px !important;
+}
+
+.page-newsroom-home .pane-1 .pane-content .email-icon + p > a {
+	margin-right: 20px !important;
+	margin-left: 20px !important;
+}
+
+.page-newsroom-home .pane-1 .pane-content .contact-icon + p > a {
+	margin-left: 70px !important;
+}
+
+
+
+/*  Press Room Home - Recent Announcements Section */
+
+.page-newsroom-home .pane-bw-press-release-panel-pane-6 .view-bw-press-release ul li.views-row  {
+ 	display: inline-block !important;
+}
+.page-newsroom-home .view-bw-press-release .item-list ul .views-row-1 a{
+ 	margin-top: -22px !important;
+}
+
+.page-newsroom-home .view-bw-press-release .item-list ul .views-row-2 a{
+ 	margin-top: -22px !important;
+}
+
+.page-newsroom-home .view-bw-press-release .item-list ul .views-row-3 a{
+ 	margin-top: -22px !important;
+ }
+
+.page-newsroom-home .view-bw-press-release .item-list ul .views-row-4 a{
+ 	margin-top: -22px !important;
+}
+
+.page-newsroom-home .view-bw-press-release .item-list ul .views-row-5 a{
+ 	margin-top: -22px !important;
+}
+
+
+
+/*  Page Press Releases - Recent Announcements Section */
+
+.page-press-releases   .view-bw-press-release ul li.views-row  {
+ 	display: inline-block !important;
+}
+
+.page-press-releases .view-bw-press-release .item-list ul .views-row-1 a{
+ 	margin-top: -22px !important;
+}
+
+.page-press-releases .view-bw-press-release .item-list ul .views-row-2 a{
+ 	margin-top: -22px !important;
+}
+
+.page-press-releases .view-bw-press-release .item-list ul .views-row-3 a{
+ 	margin-top: -22px !important;
+ }
+
+.page-press-releases .view-bw-press-release .item-list ul .views-row-4 a{
+ 	margin-top: -22px !important;
+}
+
+.page-press-releases .view-bw-press-release .item-list ul .views-row-5 a{
+ 	margin-top: -22px !important;
+}
+
+
+/* Footer BG */
+
+.footer-wrap2 {
+	background: url("/sites/readingrdi.investorhq.businesswire.com/themes/readingrdi.investorhq.businesswire.com/client_files/images/wrap_footer_bg.png") !important;
+	background-repeat: repeat !important;
+    display: block;
+    float: left;
+    margin-top: 20px;
+    width: 100%;
+}
+
+
+/* QA TICKETS */
+
+
+.page-sec-filings-quarterly .pane-embedded-content iframe,
+.page-sec-filings-annual .pane-embedded-content iframe {
+  height: 860px !important;
+}
+
+
+
+
+/* HQSITES-7493 */
+
+/*------- CAPTCHA ---------*/
+
+
+ .captcha .recaptchatable #recaptcha_response_field {
+  bottom: 7px !important;
+  font-size: 10pt;
+  margin: 15px 0 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+  width: 153px !important;
+}
+
+
+ .captcha .recaptchatable td img {
+  display: inherit !important;
+} 
+
+.recaptchatable .recaptcha_r3_c1 {
+  background: url("https://www.google.com/recaptcha/api/img/red/sprite.png")!important;
+  background-repeat: no-repeat !important;
+  background-position: 0 0 !important;
+  height: 60px !important;
+  width: 9px !important;
+  background-height: 60px!important;
+  background-width: 9px !important;
+}
+
+.recaptchatable .recaptcha_r4_c2 {
+  background: url("https://www.google.com/recaptcha/api/img/red/sprite.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: -36px 0 !important;
+  height: 50px !important;
+  background-height: 50px!important;
+}
+
+.recaptchatable .recaptcha_r4_c4 {
+  background: url("https://www.google.com/recaptcha/api/img/red/sprite.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: -214px 0 !important;
+  height: 0px !important;
+  background-height: 0px!important;
+
+
+}
+
+
+
+.recaptchatable .recaptcha_r7_c1 {
+  background-image: none !important;
+   background-repeat: no-repeat !important;
+  background-position: -43px -49px !important;
+  height: 8px !important;
+  width: 171px !important;
+  background-height: 8px!important;
+  background-width: 171px !important;
+}
+
+
+.recaptchatable .recaptcha_r8_c1 {
+  background-image: none !important;
+  background-repeat: no-repeat !important;
+  background-position: -43px -49px !important;
+  height: 8px !important;
+  width: 25px !important;
+  background-height: 8px!important;
+  background-width: 25px !important;
+}
+
+
+.page-user .captcha .form-item {
+  margin-bottom: 1em !important;
+  margin-top: 1em !important;
+}
+
+.page-user .captcha #recaptcha_area, #recaptcha_table {
+  width: 318px !important;
+}
+
+.page-user .captcha .recaptchatable {
+  line-height: 1 !important;
+}
+
+.page-user .captcha .recaptchatable, #recaptcha_area tr, #recaptcha_area td, #recaptcha_area th {
+  border: 0 none !important;
+  border-collapse: collapse !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: middle !important;
+}
+
+.page-user .captcha .recaptchatable * {
+  border: 0 none !important;
+  bottom: auto !important;
+  color: black !important;
+  font-family: helvetica,sans-serif !important;
+  font-size: 8pt !important;
+  left: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: static !important;
+  right: auto !important;
+  top: auto !important;
+}
+
+
+.page-user .captcha .recaptchatable .recaptcha_r1_c1 {
+  background: url("https://www.google.com/recaptcha/api/img/red/sprite.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 -63px !important;
+  height: 9px !important;
+  width: 318px !important;
+  background-height: 9px!important;
+  background-width: 318px !important;
+  
+}
+
+
+
+.recaptchatable .recaptcha_r2_c1 {
+  background: url("https://www.google.com/recaptcha/api/img/red/sprite.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: -18px 0 !important;
+  height: 57px !important;
+  width: 9px !important;
+  background-height: 57px!important;
+  background-width: 9px !important;
+}
+
+
+
+.recaptchatable .recaptcha_r2_c2 {
+  background: url("https://www.google.com/recaptcha/api/img/red/sprite.png")!important;
+  background-repeat: no-repeat !important;
+  background-position: -27px 0 !important;
+  height: 57px !important;
+  width: 9px !important;
+  background-height: 57px!important;
+  background-width: 9px !important;
+}
+
+.recaptchatable .recaptcha_r3_c1 {
+  background: url("https://www.google.com/recaptcha/api/img/red/sprite.png")!important;
+  background-repeat: no-repeat !important;
+  background-position: 0 0 !important;
+  height: 63px !important;
+  width: 9px !important;
+  background-height: 63px!important;
+  background-width: 9px !important;
+}
+
+
+
+.recaptchatable .recaptcha_r3_c2 {
+  background: url("https://www.google.com/recaptcha/api/img/red/sprite.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: -18px -57px !important;
+  height: 6px !important;
+  width: 300px !important;
+  background-height: 6px!important;
+  background-width: 300px !important;
+}
+
+
+
+.recaptchatable .recaptcha_r3_c3 {
+  background: url("https://www.google.com/recaptcha/api/img/red/sprite.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: -9px 0 !important;
+  height: 63px !important;
+  width: 9px !important;
+  background-height: 63px!important;
+  background-width: 9px !important;
+}
+
+
+.recaptchatable .recaptcha_r4_c1 {
+  background: url("https://www.google.com/recaptcha/api/img/red/sprite.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: -43px 0 !important;
+  height: 49px !important;
+  width: 171px !important;
+  background-height: 49px!important;
+  background-width: 171px !important;
+}
+
+
+
+.page-user .captcha .recaptchatable .recaptcha_image_cell {
+  background-color: white !important;
+  height: 57px !important;
+}
+
+.page-user .captcha .recaptchatable .recaptcha_image_cell center {
+  height: 57px !important;
+}
+
+
+
+.page-user .captcha .recaptchatable #recaptcha_image {
+  margin: auto !important;
+  position: relative !important;
+}
+
+
+/*
+.page-user .captcha .element.style {
+  height: 57px !important;
+  width: 300px !important;
+}
+
+*/
+
+.page-user .captcha .recaptchatable #recaptcha_image #recaptcha_challenge_image {
+  display: block !important;
+}
+
+
+.page-user .captcha .recaptchatable .recaptcha_image_cell center img {
+  height: 57px !important;
+}
+
+.page-user .captcha .recaptchatable img {
+  border: 0 none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+.page-user .captcha .recaptcha_input_area {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
+  height: 45px !important;
+  margin-left: 7px !important;
+  margin-right: 7px !important;
+  position: relative !important;
+  width: 153px !important;
+}
+
+
+.page-user .captcha .recaptcha_theme_red #recaptcha_response_field {
+  border: 1px solid #cca940 !important;
+}
+
+
+
+
+
+.page-user .captcha .recaptcha_only_if_privacy {
+  float: right !important;
+  text-align: right !important;
+}
+
+
+.page-user .captcha .recaptchatable a, .recaptchatable a:hover {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
+  border: 0 none !important;
+  color: blue !important;
+  cursor: pointer !important;
+  font-weight: normal !important;
+  outline: medium none !important;
+  padding: 0 !important !important;
+  text-decoration: none !important;
+}
+
+
+
+.page-user .captcha .recaptchatable a, .recaptchatable a:hover {
+  color: blue !important;
+  cursor: pointer !important;
+  font-weight: normal !important;
+}
+
+
+
+
+
+
+

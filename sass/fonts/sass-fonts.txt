@@ -1,0 +1,14 @@
+01/12/15 - Rob Carroll
+
+These are the same font files as in /quash/fonts but are also here so Sass mixins can 
+
+- Corporate Governance - person icon for Investor site - corporate governance pages
+
+- Pager Icons - replaces the pager text with requivalent icons
+
+- Share This - icon font equivalent of their PNG icons
+
+
+
+
+
